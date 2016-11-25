@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model MysteriousDataProduct.Models.Book
+
+<div class="col-md-12">
+
+<form asp-action="Create" class="col-md-6">
+
+  <div class="form-group row" >
+    <label for="exampleTextarea">Inset book summary here</label>
+    <textarea class="form-control" name="summary" rows="3">@Model.Summary</textarea>
+    <div>@Model.Subcategory</div>
+  </div>
+
+
+  <div class="form-group row" >
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+  </div>
+
+
+  </form>
+
+  <div class="col-md-6">
+
+    <ul>
+
+      @foreach (var kvp in @Model.SortedWordFrequency)
+      {
+        <li>
+          @kvp.Key : @kvp.Value
+        </li>
+      }
+
+    </ul>
+
+  </div>
+
+</div>

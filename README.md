@@ -6,4 +6,5 @@ BookSACK is a **Book** categorizer developed by Ruth **S**ylvia , Sam **A**ssaf,
 Visit the website at booksack.azurewebsites.net
 
 This project is licensed under the terms of the MIT license.
+
 Please view LICENSE.md for more information.

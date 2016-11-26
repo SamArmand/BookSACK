@@ -4,7 +4,7 @@ using System.Linq;
 namespace MysteriousDataProduct.Models
 {
 
-    public class Book 
+    public class TrainingBook 
     {
 
         private string _summary;
@@ -19,17 +19,7 @@ namespace MysteriousDataProduct.Models
 			set { 
 				_summary = value; 
 				SortedWordFrequency = GenerateSortedWordFrequency(value);
-				GenerateSubCategory();
 				}
-        }
-
-        private void GenerateSubCategory()
-        {
-            if (SortedWordFrequency.Count == 0)
-				Subcategory = "";
-
-			else
-				Subcategory = "Subcategory";
         }
 
         public string Category {get; set;}
@@ -51,16 +41,16 @@ namespace MysteriousDataProduct.Models
 			inputString = inputString.ToLower();        
  
 			// Define characters to strip from the input and do it
-			string[] stripChars = { ";", ",", ".", "-", "_", "^", "(", ")", "[", "]", ":", "{", "}", "*", "!", "•", "—", "?", "\"", "~", "<", ">",
+			string[] stripChars = { ";", ",", ".", "-", "_", "^", "(", ")", "[", "]",
 						"\n", "\t", "\r" };
 			foreach (string character in stripChars)
-				inputString = inputString.Replace(character, " ");
+				inputString = inputString.Replace(character, "");
 			
 			// Split on spaces into a List of strings
 			var wordList = inputString.Split(' ').ToList();
  
 			// Define and remove stopwords
-			string[] stopwords = new string[] { "and", "the", "she", "for", "this", "you", "but", "these", "those", "they", "that" };
+			string[] stopwords = new string[] { "and", "the", "she", "for", "this", "you", "but" };
 			foreach (string word in stopwords)
 			{
 				// While there's still an instance of a stopword in the wordList, remove it.

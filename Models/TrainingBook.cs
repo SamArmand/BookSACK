@@ -22,7 +22,7 @@ namespace MysteriousDataProduct.Models
 				}
         }
 
-        public string Category {get; set;}
+        //public string Category {get; set;}
 
         public string Subcategory {get; set;}
 		
@@ -31,6 +31,9 @@ namespace MysteriousDataProduct.Models
         private Dictionary<string, int> GenerateSortedWordFrequency(string inputString)
         {
 			
+            if (inputString == null)
+                return null;
+
 			// Create a new Dictionary object
 			var dictionary = new Dictionary<string, int>();
 			

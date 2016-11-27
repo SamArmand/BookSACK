@@ -35,9 +35,19 @@ namespace MysteriousDataProduct.Controllers
 
         public IActionResult Train(string summary, string subcategory)
         {
+            
             var trainingBook = new TrainingBook();
-            trainingBook.Summary = summary;
+            
             trainingBook.Subcategory = subcategory;
+
+            if (summary == null)
+            {
+                trainingBook.Summary = "";
+                return View("Trainer", trainingBook);    
+            }
+
+            trainingBook.Summary = summary;
+            
 
             var dataAccess = new DataAccess();
 

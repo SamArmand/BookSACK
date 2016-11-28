@@ -25,7 +25,7 @@ foreach ($book in $books) {
         subcategory = $book.Subcategory;
     }
 
-    Invoke-WebRequest -Uri "http://localhost:5000/api/TrainingBook" -Method POST -Body (ConvertTo-Json $params) -ContentType 'application/json'
+    Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method POST -Body (ConvertTo-Json $params) -ContentType 'application/json'
 
 }
 

@@ -45,6 +45,12 @@ namespace MysteriousDataProduct.Controllers
             return new ObjectResult(CreateTrainingBook(summary, subcategory));
         }
 
+        [Route("api/{summary}")]
+        public ObjectResult Insert(string summary) 
+        {
+            return new ObjectResult(new Book(){Summary = summary});
+        }
+
         /// <summary>
         /// 
         /// </summary>

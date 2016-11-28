@@ -20,9 +20,12 @@ foreach ($book in $books) {
         continue
     }
 
-    $uri = "http://booksack.azurewebsites.net/api/" + $book.Synopsis + "/" + $book.Subcategory
+    $params = @{
+        synopsis = $book.Synopsis;
+        subcategory = $book.Subcategory;
+    }
 
-    Invoke-WebRequest -URI $uri
-
+    Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method POST -Body (ConvertTo-Json $params) -ContentType 'application/json'
+    $params
 }
 

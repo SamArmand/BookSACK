@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MysteriousDataProduct.Architecture;
 
 namespace MysteriousDataProduct.Models
 {
@@ -13,7 +14,7 @@ namespace MysteriousDataProduct.Models
 			get {return _synopsis;} 
 			set { 
 				_synopsis = value == null ? "" : value; 
-				SortedWordFrequency = StringProcessor.GenerateSortedWordFrequency(value);
+				SortedWordFrequency = StaticFunctions.GenerateSortedWordFrequency(value);
 				}
         }
 

@@ -2,8 +2,11 @@ $connectionString = "Data Source=h98ohmld2f.database.windows.net;Initial Catalog
 
 $books = Import-Csv "books.csv"
 
+$correct = 0;
+$total = 0;
+
 foreach ($book in $books) {
-    
+
     if ($book.Holdout -ne "Test") {
         continue
     }
@@ -14,7 +17,31 @@ foreach ($book in $books) {
 
     $result = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/Book" -Method POST -Body (ConvertTo-Json $params) -ContentType 'application/json'
     
-    $result.Content
+
+    if ($book.Subcategory -eq $result.Content) {
+
+        $correct++
+        write-host $result.Content -ForegroundColor "green"
+
+    }
+    
+    else {
+
+        
+        Write-host "-----------------------------------------------------" -foregroundcolor "red"
+        write-host "PREDICTED: $($result.Content)" -foregroundcolor "red"
+        write-host "ACTUAL: $($book.Subcategory)"
+        Write-host "-----------------------------------------------------" -foregroundcolor "red"
+
+    }
+
+
+    $total++
+
 
 }
+
+$tally = "$correct/$total"
+
+Write-Host $tally 
 

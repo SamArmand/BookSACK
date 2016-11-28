@@ -6,48 +6,78 @@ using System;
 namespace MysteriousDataProduct.Controllers
 {
 
+    /// <summary>
+    /// The Controller for all views within the Home view.
+    /// </summary>
     public class HomeController : Controller
     {
 
-        public IActionResult Index()
+        /// <summary>
+        /// Creates a Book model and returns the Index view with that model.
+        /// </summary>
+        /// <param name="summary">The summary of the new Book to be created. Defaults to an empty string resulting in an empty Book.</param>
+        /// <returns>Returns a ViewResult with the Index view and Book model to be loaded.</returns>
+        public ViewResult Index(string summary = "")
         {
-            var book = new Book();
-            book.Summary = "";
-            return View("Index", book);
+            return View("Index", new Book() {Summary = summary});
         }
 
-        public IActionResult Trainer()
+        /// <summary>
+        /// Creates a TrainingBook model and returns the Trainer view with that model.
+        /// </summary>
+        /// <param name="summary">The summary of the new TrainingBook to be created. Defaults to an empty string resulting in an empty TrainingBook.</param>
+        /// <param name="subcategory">The subcategory of the new TrainingBook to be created. Defaults to an empty string.</param>
+        /// <returns>Returns a ViewResult with the Trainer view and TrainingBook model to be loaded.</returns>
+        public ViewResult Trainer(string summary = "", string subcategory = "")
         {
-            var trainingBook = new TrainingBook();
-            trainingBook.Summary = "";
-            return View("Trainer", trainingBook);
+            return View("Trainer", CreateTrainingBook(summary, subcategory));
         }
 
-
-
-        public IActionResult Create(string summary)
+        /// <summary>
+        /// API method for inserting training book data.
+        /// </summary>
+        /// <param name="summary">The summary of the new TrainingBook to be created.</param>
+        /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
+        /// <returns>An ObjectResult with the newly created TrainingBook object.</returns>
+        [HttpPost]
+        public ObjectResult Insert([FromBody] string summary, [FromBody] string subcategory)
         {
-            var book = new Book();
-            book.Summary = summary;
-            return View("Index", book);
-
+            return new ObjectResult(CreateTrainingBook(summary, subcategory));
         }
 
-        public IActionResult Train(string summary, string subcategory)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Returns a ViewResult with the About view.</returns>
+        public ViewResult About()
         {
-            
-            var trainingBook = new TrainingBook();
-            
-            trainingBook.Subcategory = subcategory;
+            return View();
+        }
 
-            if (summary == null)
-            {
-                trainingBook.Summary = "";
-                return View("Trainer", trainingBook);    
-            }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Returns a ViewResult with the About view.</returns>
+        public ViewResult Error()
+        {
+            return View();
+        }
 
-            trainingBook.Summary = summary;
-            
+        /// <summary>
+        /// Private method that handles the logic of creating a TrainingBook object and inserting it into the database.
+        /// </summary>
+        /// <param name="summary">The summary of the new TrainingBook to be created.</param>
+        /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
+        /// <returns>Returns a new TrainingBook.</returns>
+        private TrainingBook CreateTrainingBook(string summary, string subcategory) {
+
+            var trainingBook = new TrainingBook() {
+                Summary = summary,
+                Subcategory = subcategory
+            };
+
+            if (summary == null || summary == "")          
+                RedirectToAction("Trainer", trainingBook);
 
             var dataAccess = new DataAccess();
 
@@ -87,19 +117,10 @@ namespace MysteriousDataProduct.Controllers
 
             dataAccess.Update(subcategory, dictionary);
 
-            return View("Trainer", trainingBook);
+            return trainingBook;
 
         }
 
-        public IActionResult About()
-        {
 
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View();
-        }
     }
 }

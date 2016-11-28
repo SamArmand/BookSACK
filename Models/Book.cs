@@ -10,15 +10,11 @@ namespace MysteriousDataProduct.Models
 
         private string _summary;
 
-        //public string Title {get; set;}
-
-        //public string Author {get; set;}
-
         public string Summary 
         {
 			get {return _summary;} 
-			set { 
-				_summary = value; 
+			set {			
+				_summary = value == null ? "" : value; 
 				SortedWordFrequency = GenerateSortedWordFrequency(value);
 				PredictSubcategory();
 				}
@@ -27,7 +23,7 @@ namespace MysteriousDataProduct.Models
         private void PredictSubcategory()
         {
             if (SortedWordFrequency.Count == 0) {
-				Subcategory = "";
+				Subcategory = "Select one";
 				return;
 			}
 
@@ -74,8 +70,6 @@ namespace MysteriousDataProduct.Models
 
 
         }
-
-        //public string Category {get; set;}
 
         public string Subcategory {get; set;}
 		

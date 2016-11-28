@@ -9,20 +9,14 @@ namespace MysteriousDataProduct.Models
 
         private string _summary;
 
-        //public string Title {get; set;}
-
-        //public string Author {get; set;}
-
         public string Summary 
         {
 			get {return _summary;} 
 			set { 
-				_summary = value; 
+				_summary = value == null ? "" : value; 
 				SortedWordFrequency = GenerateSortedWordFrequency(value);
 				}
         }
-
-        //public string Category {get; set;}
 
         public string Subcategory {get; set;}
 		

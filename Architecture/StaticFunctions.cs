@@ -21,7 +21,7 @@ namespace MysteriousDataProduct.Architecture
                 inputString = inputString.ToLower();        
     
                 // Define characters to strip from the input and do it
-                string[] stripChars = { ";", ",", ".", "-", "_", "^", "(", ")", "[", "]", ":", "{", "}", "*", "!", "•", "—", "?", "\"", "~", "<", ">", "�", "'",
+                string[] stripChars = { ";", ",", ".", "-", "_", "^", "(", ")", "[", "]", ":", "{", "}", "*", "!", "•", "—", "?", "\"", "~", "<", ">", "�", "'", "–",
                             "\n", "\t", "\r" };
                 foreach (string character in stripChars)
                     inputString = inputString.Replace(character, " ");

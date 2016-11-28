@@ -39,7 +39,7 @@ namespace MysteriousDataProduct.Controllers
         /// <param name="summary">The summary of the new TrainingBook to be created.</param>
         /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
         /// <returns>An ObjectResult with the newly created TrainingBook object.</returns>
-        [HttpGet("{summary}/{subcategory}")]
+        [HttpGet("{summary}/{subcategory}", Name="GetHome")]
         public ObjectResult Insert([FromBody] string summary, [FromBody] string subcategory)
         {
             return new ObjectResult(CreateTrainingBook(summary, subcategory));

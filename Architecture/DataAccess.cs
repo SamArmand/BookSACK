@@ -15,8 +15,8 @@ namespace MysteriousDataProduct.Architecture
 
             var dictionaries = new Dictionary<string, Dictionary<string, Word>>();
 
-            dictionaries.Add("Critically Acclaimed Mysteries Set in 1800–1950", new Dictionary<string,Word>());
-            dictionaries.Add("Female-Centered Murder Mysteries Set in 1914–1945 England", new Dictionary<string,Word>());
+            dictionaries.Add("Critically Acclaimed Mysteries Set in 1800-1950", new Dictionary<string,Word>());
+            dictionaries.Add("Female-Centered Murder Mysteries Set in 1914-1945 England", new Dictionary<string,Word>());
             dictionaries.Add("Historical Thrillers About Books and Art", new Dictionary<string,Word>());
             dictionaries.Add("Mysteries Set in Victorian and Edwardian England", new Dictionary<string,Word>());
             dictionaries.Add("Occult and Political Mysteries Set in Medieval and Renaissance Europe", new Dictionary<string,Word>());

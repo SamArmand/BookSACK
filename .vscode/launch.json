@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/MysteriousDataProduct.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/MysteriousDataProduct.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,

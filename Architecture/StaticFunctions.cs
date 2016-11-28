@@ -46,7 +46,6 @@ namespace MysteriousDataProduct.Architecture
                 // Loop over all over the words in our wordList...
                 foreach (string word in wordList)
                 {
-//System.Data.Entity.Design.PluralizationServices.PluralizationService.CreateService(CultureInfo.GetCultureInfo("en-us"));
 
                     // If the length of the word is at least three letters...
                     if (word.Length >= 3) 

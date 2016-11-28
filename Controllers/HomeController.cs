@@ -15,40 +15,40 @@ namespace MysteriousDataProduct.Controllers
         /// <summary>
         /// Creates a Book model and returns the Index view with that model.
         /// </summary>
-        /// <param name="summary">The summary of the new Book to be created. Defaults to an empty string resulting in an empty Book.</param>
+        /// <param name="synopsis">The synopsis of the new Book to be created. Defaults to an empty string resulting in an empty Book.</param>
         /// <returns>Returns a ViewResult with the Index view and Book model to be loaded.</returns>
-        public ViewResult Index(string summary = "")
+        public ViewResult Index(string synopsis = "")
         {
-            return View("Index", new Book() {Summary = summary});
+            return View("Index", new Book() {Synopsis = synopsis});
         }
 
         /// <summary>
         /// Creates a TrainingBook model and returns the Trainer view with that model.
         /// </summary>
-        /// <param name="summary">The summary of the new TrainingBook to be created. Defaults to an empty string resulting in an empty TrainingBook.</param>
+        /// <param name="synopsis">The synopsis of the new TrainingBook to be created. Defaults to an empty string resulting in an empty TrainingBook.</param>
         /// <param name="subcategory">The subcategory of the new TrainingBook to be created. Defaults to an empty string.</param>
         /// <returns>Returns a ViewResult with the Trainer view and TrainingBook model to be loaded.</returns>
-        public ViewResult Trainer(string summary = "", string subcategory = "")
+        public ViewResult Trainer(string synopsis = "", string subcategory = "")
         {
-            return View("Trainer", CreateTrainingBook(summary, subcategory));
+            return View("Trainer", CreateTrainingBook(synopsis, subcategory));
         }
 
         /// <summary>
         /// API method for inserting training book data.
         /// </summary>
-        /// <param name="summary">The summary of the new TrainingBook to be created.</param>
+        /// <param name="synopsis">The summary of the new TrainingBook to be created.</param>
         /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
         /// <returns>An ObjectResult with the newly created TrainingBook object.</returns>
-        [Route("api/{summary}/{subcategory}")]
-        public ObjectResult Insert(string summary, string subcategory)
+        [Route("api/{synopsis}/{subcategory}")]
+        public ObjectResult Insert(string synopsis, string subcategory)
         {
-            return new ObjectResult(CreateTrainingBook(summary, subcategory));
+            return new ObjectResult(CreateTrainingBook(synopsis, subcategory));
         }
 
-        [Route("api/{summary}")]
-        public ObjectResult Insert(string summary) 
+        [Route("api/{synopsis}")]
+        public ObjectResult Insert(string synopsis) 
         {
-            return new ObjectResult(new Book(){Summary = summary});
+            return new ObjectResult(new Book(){Synopsis = synopsis});
         }
 
         /// <summary>
@@ -72,17 +72,17 @@ namespace MysteriousDataProduct.Controllers
         /// <summary>
         /// Private method that handles the logic of creating a TrainingBook object and inserting it into the database.
         /// </summary>
-        /// <param name="summary">The summary of the new TrainingBook to be created.</param>
+        /// <param name="synopsis">The summary of the new TrainingBook to be created.</param>
         /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
         /// <returns>Returns a new TrainingBook.</returns>
-        private TrainingBook CreateTrainingBook(string summary, string subcategory) {
+        private TrainingBook CreateTrainingBook(string synopsis, string subcategory) {
 
             var trainingBook = new TrainingBook() {
-                Summary = summary,
+                Synopsis = synopsis,
                 Subcategory = subcategory
             };
 
-            if (summary == null || summary == "")          
+            if (synopsis == null || synopsis == "")          
                 RedirectToAction("Trainer", trainingBook);
 
             var dataAccess = new DataAccess();

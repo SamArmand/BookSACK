@@ -7,13 +7,13 @@ namespace MysteriousDataProduct.Models
     public class Book 
     {
 
-        private string _summary;
+        private string _synopsis;
 
-        public string Summary 
+        public string Synopsis 
         {
-			get {return _summary;} 
+			get {return _synopsis;} 
 			set {			
-				_summary = value == null ? "" : value; 
+				_synopsis = value == null ? "" : value; 
 				SortedWordFrequency = StringProcessor.GenerateSortedWordFrequency(value);
 				PredictSubcategory();
 				}

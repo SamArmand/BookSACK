@@ -20,7 +20,7 @@ foreach ($book in $books) {
         continue
     }
 
-    $uri = "http://booksack.azurewebsites.net/" + $book.summary + "/" + $book.subcategory
+    $uri = "http://booksack.azurewebsites.net/api/" + $book.Synopsis + "/" + $book.Subcategory
 
     Invoke-WebRequest -URI $uri
 

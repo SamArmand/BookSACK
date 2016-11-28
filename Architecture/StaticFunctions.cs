@@ -91,9 +91,6 @@ namespace MysteriousDataProduct.Architecture
             public static TrainingBook CreateTrainingBook(TrainingBook trainingBook) 
             {
 
-                if (trainingBook.Synopsis == null || trainingBook.Synopsis == "")          
-                    return trainingBook;
-
                 var dataAccess = new DataAccess();
 
                 var dictionary = dataAccess.GetDictionaries()[trainingBook.Subcategory];

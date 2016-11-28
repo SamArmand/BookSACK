@@ -39,14 +39,14 @@ namespace MysteriousDataProduct.Controllers
         /// <param name="synopsis">The summary of the new TrainingBook to be created.</param>
         /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
         /// <returns>An ObjectResult with the newly created TrainingBook object.</returns>
-        [Route("api/{synopsis}/{subcategory}")]
-        public ObjectResult Insert(string synopsis, string subcategory)
+        [Route("api/train")]
+        public ObjectResult Insert([FromBody] string synopsis, [FromBody] string subcategory)
         {
             return new ObjectResult(CreateTrainingBook(synopsis, subcategory));
         }
 
-        [Route("api/{synopsis}")]
-        public ObjectResult Insert(string synopsis) 
+        [Route("api/test")]
+        public ObjectResult Insert([FromBody] string synopsis) 
         {
             return new ObjectResult(new Book(){Synopsis = synopsis});
         }

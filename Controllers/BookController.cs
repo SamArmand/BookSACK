@@ -20,7 +20,7 @@ namespace MysteriousDataProduct.Controllers
         [HttpPost]
         public ObjectResult Test([FromBody] Book book) 
         {
-            return new ObjectResult(book);
+            return new ObjectResult(book.Subcategory);
         }
 
 

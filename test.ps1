@@ -14,7 +14,7 @@ foreach ($book in $books) {
 
     $result = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/Book" -Method POST -Body (ConvertTo-Json $params) -ContentType 'application/json'
     
-    $result
+    $result.Content
 
 }
 

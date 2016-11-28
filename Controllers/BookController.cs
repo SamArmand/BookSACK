@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using MysteriousDataProduct.Models;
-using MysteriousDataProduct.Architecture;
 
 namespace MysteriousDataProduct.Controllers
 {
@@ -9,7 +8,7 @@ namespace MysteriousDataProduct.Controllers
     /// The Controller for all views within the Home view.
     /// </summary>
     [Route("api/[controller]")]
-    public class TrainingBookController : Controller
+    public class BookController : Controller
     {
 
         /// <summary>
@@ -17,12 +16,13 @@ namespace MysteriousDataProduct.Controllers
         /// </summary>
         /// <param name="synopsis">The summary of the new TrainingBook to be created.</param>
         /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
-        /// <returns>An ObjectResult with the newly created TrainingBook object.</returns>
+        /// <returns>An ObjectResult with the newly created Book object.</returns>
         [HttpPost]
-        public ObjectResult Train([FromBody] TrainingBook trainingBook)
+        public ObjectResult Test([FromBody] Book book) 
         {
-            return new ObjectResult(StaticFunctions.CreateTrainingBook(trainingBook));
+            return new ObjectResult(book);
         }
+
 
     }
 

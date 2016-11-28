@@ -26,6 +26,6 @@ foreach ($book in $books) {
     }
 
     Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method POST -Body (ConvertTo-Json $params) -ContentType 'application/json'
-    $params
+    
 }
 

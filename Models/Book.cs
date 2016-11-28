@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using MysteriousDataProduct.Architecture;
 
 namespace MysteriousDataProduct.Models
@@ -22,7 +23,7 @@ namespace MysteriousDataProduct.Models
         private void PredictSubcategory()
         {
             if (SortedWordFrequency.Count == 0) {
-				Subcategory = "Select one";
+				Subcategory = "";
 				return;
 			}
 
@@ -32,20 +33,20 @@ namespace MysteriousDataProduct.Models
 
 			var probabilities = new Dictionary<string,double>();
 
-			probabilities.Add("Critically Acclaimed Mysteries Set in 1800–1950", 0);
-			probabilities.Add("Female-Centered Murder Mysteries Set in 1914–1945 England", 0);
+			probabilities.Add("Critically Acclaimed Mysteries Set in 1800-1950", 0);
+			probabilities.Add("Female-Centered Murder Mysteries Set in 1914-1945 England", 0);
 			probabilities.Add("Historical Thrillers About Books and Art", 0);
 			probabilities.Add("Mysteries Set in Victorian and Edwardian England", 0);
 			probabilities.Add("Occult and Political Mysteries Set in Medieval and Renaissance Europe", 0);
 
-			foreach (var kvp in SortedWordFrequency) 
+			foreach (var key1 in SortedWordFrequency.Keys.ToList()) 
 			{
 
-				foreach(var kvp2 in probabilities) 
+				foreach(var key2 in probabilities.Keys.ToList()) 
 				{
 					
-					if (dictionaries[kvp2.Key].ContainsKey(kvp.Key))
-						probabilities[kvp2.Key] += (SortedWordFrequency[kvp.Key] * dictionaries[kvp2.Key][kvp.Key].Probability);
+					if (dictionaries[key2].ContainsKey(key1))
+						probabilities[key2] += (SortedWordFrequency[key1] * dictionaries[key2][key1].Probability);
 
 				}
 

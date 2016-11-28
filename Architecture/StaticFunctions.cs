@@ -83,9 +83,20 @@ namespace MysteriousDataProduct.Architecture
                 if (synopsis == null || synopsis == "")          
                     return trainingBook;
 
+                return CreateTrainingBook(trainingBook);
+
+            }
+
+
+            public static TrainingBook CreateTrainingBook(TrainingBook trainingBook) 
+            {
+
+                if (trainingBook.Synopsis == null || trainingBook.Synopsis == "")          
+                    return trainingBook;
+
                 var dataAccess = new DataAccess();
 
-                var dictionary = dataAccess.GetDictionaries()[subcategory];
+                var dictionary = dataAccess.GetDictionaries()[trainingBook.Subcategory];
 
                 foreach (var kvp in trainingBook.SortedWordFrequency) {
 
@@ -94,7 +105,7 @@ namespace MysteriousDataProduct.Architecture
                         var Word = new Word() {
 
                             WordString = kvp.Key,
-                            Subcategory = subcategory,
+                            Subcategory = trainingBook.Subcategory,
                             FrequencyPlus1 = 1
 
                         };
@@ -119,7 +130,7 @@ namespace MysteriousDataProduct.Architecture
 
                 }
 
-                dataAccess.Update(subcategory, dictionary);
+                dataAccess.Update(trainingBook.Subcategory, dictionary);
 
                 return trainingBook;
 

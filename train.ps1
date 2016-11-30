@@ -43,7 +43,7 @@ foreach ($book in $books) {
     else {
         
         Write-Host "-----------------------------------------------------" -ForegroundColor Red
-        write-Host "PREDICTED: $($result.Content)" -ForegroundColor Green
+        write-Host "PREDICTED: $($result.Content)" -ForegroundColor Red
         write-Host "ACTUAL: $($book.Subgenre)"
         Write-Host "-----------------------------------------------------" -ForegroundColor Red
 

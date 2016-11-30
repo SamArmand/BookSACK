@@ -26,15 +26,15 @@ namespace MysteriousDataProduct.Architecture
                 // Convert our input to lowercase
                 inputString = inputString.ToLower();
 
+                var wordList = (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " "))).Split(' ').ToList();
+
+                foreach (var stopword in Stopwords)
+                    while (wordList.Contains(stopword))
+                        wordList.Remove(stopword);
 
                 // Remove special characters
                 // Split on spaces into a List of strings
                 // Remove stopwords
-                var wordList =
-                    (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
-                        .Split(' ').ToList().Except(Stopwords);
-
-
                 // Loop over all over the words in our wordList...
                 // If the length of the word is at least three letters...
                 // ...check if the dictionary already has the word.
@@ -45,7 +45,8 @@ namespace MysteriousDataProduct.Architecture
                         dictionary[word] = dictionary.ContainsKey(word) ? dictionary[word] + 1 : 1;
 
                 // Create a dictionary sorted by value (i.e. how many times a word occurs)
-                return (from entry in dictionary orderby entry.Value descending select entry).ToDictionary(pair => pair.Key, pair => pair.Value);
+                return (from entry in dictionary orderby entry.Value descending select entry)
+                    .ToDictionary(pair => pair.Key, pair => pair.Value);
     
             }
 
@@ -95,7 +96,7 @@ namespace MysteriousDataProduct.Architecture
 
                 foreach (var kvp in dictionary)
                     kvp.Value.Probability = kvp.Value.FrequencyPlus1 / sum;
-                
+
 
                 dataAccess.Update(trainingBook.Subgenre, dictionary);
 

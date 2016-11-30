@@ -14,13 +14,12 @@ namespace MysteriousDataProduct.Controllers
         /// <summary>
         /// API method for inserting training book data.
         /// </summary>
-        /// <param name="synopsis">The summary of the new TrainingBook to be created.</param>
-        /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
-        /// <returns>An ObjectResult with the newly created Book object.</returns>
+        /// <param name="book">The Book passed to the API as a JSON object.</param>
+        /// <returns>An ObjectResult with the newly created Book object's subgenre.</returns>
         [HttpPost]
         public ObjectResult Test([FromBody] Book book) 
         {
-            return new ObjectResult(book.Subcategory);
+            return new ObjectResult(book.Subgenre);
         }
 
 

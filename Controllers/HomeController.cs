@@ -25,11 +25,11 @@ namespace MysteriousDataProduct.Controllers
         /// Creates a TrainingBook model and returns the Trainer view with that model.
         /// </summary>
         /// <param name="synopsis">The synopsis of the new TrainingBook to be created. Defaults to an empty string resulting in an empty TrainingBook.</param>
-        /// <param name="subcategory">The subcategory of the new TrainingBook to be created. Defaults to an empty string.</param>
+        /// <param name="subgenre">The subcategory of the new TrainingBook to be created. Defaults to an empty string.</param>
         /// <returns>Returns a ViewResult with the Trainer view and TrainingBook model to be loaded.</returns>
-        public ViewResult Trainer(string synopsis = "", string subcategory = "")
+        public ViewResult Trainer(string synopsis = "", string subgenre = "")
         {
-            return View("Trainer", StaticFunctions.CreateTrainingBook(synopsis, subcategory));
+            return View("Trainer", StaticFunctions.CreateTrainingBook(synopsis, subgenre));
         }
 
         /// <summary>

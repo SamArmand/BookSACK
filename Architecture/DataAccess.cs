@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using MysteriousDataProduct.Models;
 
 namespace MysteriousDataProduct.Architecture
 {
@@ -23,7 +23,7 @@ namespace MysteriousDataProduct.Architecture
 
             var connection = new SqlConnection(ConnectionString);
 
-            var command = new SqlCommand("SELECT WordString, Subcategory, FrequencyPlus1, Probability, Ln FROM Dictionaries");
+            var command = new SqlCommand("SELECT WordString, Subgenre, FrequencyPlus1, Probability FROM Dictionaries");
 
 
             connection.Open();
@@ -34,18 +34,15 @@ namespace MysteriousDataProduct.Architecture
 
             while (reader.Read())
             {
-                
-                
+                      
                 var word = new Word() {};
 
-                    word.FrequencyPlus1 = reader.GetInt32(reader.GetOrdinal("FrequencyPlus1"));
-                    word.Probability = Convert.ToDouble(reader.GetFloat(reader.GetOrdinal("Probability")));
-                    word.Ln = Convert.ToDouble(reader.GetFloat(reader.GetOrdinal("Ln")));
                 word.WordString = reader.GetString(reader.GetOrdinal("WordString"));
-                word.Subcategory = reader.GetString(reader.GetOrdinal("Subcategory"));
-                
-                dictionaries[word.Subcategory].Add(word.WordString, word);
+                word.Subgenre = reader.GetString(reader.GetOrdinal("Subgenre"));
+                word.FrequencyPlus1 = reader.GetInt32(reader.GetOrdinal("FrequencyPlus1"));
+                word.Probability = Convert.ToDouble(reader.GetFloat(reader.GetOrdinal("Probability")));
 
+                dictionaries[word.Subgenre].Add(word.WordString, word);
 
             }
 
@@ -56,14 +53,33 @@ namespace MysteriousDataProduct.Architecture
             return dictionaries;
         }
 
+        internal bool Reset()
+        {
+            var connection = new SqlConnection(ConnectionString);
+
+            var command = new SqlCommand("DELETE FROM Dictionaries;");
+
+            connection.Open();
+
+            command.Connection = connection;
+
+            command.ExecuteNonQuery();
+
+            command.Dispose();
+            connection.Dispose();
+
+            return true;
+
+        }
+
         internal void Update(string subcategory, Dictionary<string, Word> dictionary)
         {
 
             var connection = new SqlConnection(ConnectionString);
 
-            var command = new SqlCommand("DELETE FROM Dictionaries WHERE Subcategory=@Subcategory;") {CommandType = CommandType.Text};
+            var command = new SqlCommand("DELETE FROM Dictionaries WHERE Subgenre=@Subgenre;");
 
-            command.Parameters.AddWithValue("@Subcategory", subcategory);
+            command.Parameters.AddWithValue("@Subgenre", subcategory);
 
             connection.Open();
 
@@ -83,13 +99,12 @@ namespace MysteriousDataProduct.Architecture
         {
             var connection = new SqlConnection(ConnectionString);
 
-            var command = new SqlCommand("INSERT INTO Dictionaries (WordString, Subcategory, FrequencyPlus1, Probability, Ln) VALUES (@WordString, @Subcategory, @FrequencyPlus1, @Probability, @Ln);") { CommandType = CommandType.Text };
+            var command = new SqlCommand("INSERT INTO Dictionaries (WordString, Subgenre, FrequencyPlus1, Probability) VALUES (@WordString, @Subgenre, @FrequencyPlus1, @Probability);");
 
             command.Parameters.AddWithValue("@WordString", word.WordString);
-            command.Parameters.AddWithValue("@Subcategory", word.Subcategory);
+            command.Parameters.AddWithValue("@Subgenre", word.Subgenre);
             command.Parameters.AddWithValue("@FrequencyPlus1", word.FrequencyPlus1);
             command.Parameters.AddWithValue("@Probability", word.Probability);
-            command.Parameters.AddWithValue("@Ln", word.Ln);
 
             connection.Open();
 
@@ -100,7 +115,6 @@ namespace MysteriousDataProduct.Architecture
             command.Dispose();
             connection.Dispose();
         }
-
 
     }
 }

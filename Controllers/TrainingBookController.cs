@@ -15,13 +15,22 @@ namespace MysteriousDataProduct.Controllers
         /// <summary>
         /// API method for inserting training book data.
         /// </summary>
-        /// <param name="synopsis">The summary of the new TrainingBook to be created.</param>
-        /// <param name="subcategory">The subcategory of the new TrainingBook to be created.</param>
-        /// <returns>An ObjectResult with the newly created TrainingBook object.</returns>
+        /// <param name="trainingBook">The TrainingBook passed to the API to be created.</param>
+        /// <returns>An ObjectResult with the value true.</returns>
         [HttpPost]
         public ObjectResult Train([FromBody] TrainingBook trainingBook)
         {
-            return new ObjectResult(StaticFunctions.CreateTrainingBook(trainingBook));
+            return(new ObjectResult(StaticFunctions.CreateTrainingBook(trainingBook)));
+        }
+
+        /// <summary>
+        /// API method for resetting training book data.
+        /// </summary>
+        /// <returns>An ObjectResult with the value true.</returns>
+        [HttpDelete]
+        public ObjectResult Reset()
+        {
+            return new ObjectResult((new DataAccess()).Reset());
         }
 
     }

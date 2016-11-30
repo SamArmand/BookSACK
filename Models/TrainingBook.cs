@@ -7,18 +7,18 @@ namespace MysteriousDataProduct.Models
     public class TrainingBook 
     {
 
-        private string _synopsis;
+        private string _synopsis = string.Empty;
 
         public string Synopsis
         {
 			get {return _synopsis;} 
-			set { 
-				_synopsis = value == null ? "" : value; 
+			set {
+                if (value != null) _synopsis = value; 
 				SortedWordFrequency = StaticFunctions.GenerateSortedWordFrequency(value);
 				}
         }
 
-        public string Subcategory {get; set;}
+        public string Subgenre {get; set;}
 		
 		public Dictionary<string, int> SortedWordFrequency {get; set;}
 

@@ -40,9 +40,7 @@ namespace MysteriousDataProduct.Models
         private void Process() 
         {
 
-            var dataAccess = new DataAccess();
-
-            var dictionary = dataAccess.GetDictionaries()[Subgenre];
+            var dictionary = DataAccess.GetDictionaries()[Subgenre];
 
             foreach (var kvp in SortedWordFrequency) {
 
@@ -68,7 +66,7 @@ namespace MysteriousDataProduct.Models
 
             foreach (var kvp in dictionary) kvp.Value.Probability = kvp.Value.FrequencyPlus1 / sum;
 
-            dataAccess.Update(Subgenre, dictionary);
+            DataAccess.Update(Subgenre, dictionary);
 
             _processed = true;
 

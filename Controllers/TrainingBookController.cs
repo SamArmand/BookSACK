@@ -18,21 +18,14 @@ namespace MysteriousDataProduct.Controllers
         /// <param name="trainingBook">The TrainingBook passed to the API to be created.</param>
         /// <returns>An ObjectResult with the value true.</returns>
         [HttpPost]
-        public ObjectResult Train([FromBody] TrainingBook trainingBook)
-        {
-            return(new ObjectResult(trainingBook));
-        }
+        public ObjectResult Train([FromBody] TrainingBook trainingBook) => (new ObjectResult(trainingBook));
 
         /// <summary>
         /// API method for resetting training book data.
         /// </summary>
         /// <returns>An ObjectResult with the value true.</returns>
         [HttpDelete]
-        public ObjectResult Reset()
-        {
-            return new ObjectResult((new DataAccess()).Reset());
-        }
-
+        public ObjectResult Reset() => new ObjectResult(DataAccess.Reset());
     }
 
 }

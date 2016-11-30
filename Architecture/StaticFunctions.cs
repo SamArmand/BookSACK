@@ -90,15 +90,15 @@ namespace MysteriousDataProduct.Architecture
                 // Convert our input to lowercase
                 inputString = inputString.ToLower();
 
+                // Remove special characters
+                // Split on spaces into a List of strings
                 var wordList =
                     (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
                         .Split(' ').ToList();
 
+                // Remove stopwords
                 foreach (var stopword in Stopwords) while (wordList.Contains(stopword)) wordList.Remove(stopword);
 
-                // Remove special characters
-                // Split on spaces into a List of strings
-                // Remove stopwords
                 // Loop over all over the words in our wordList...
                 // If the length of the word is at least three letters...
                 // ...check if the dictionary already has the word.

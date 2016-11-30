@@ -10,7 +10,7 @@ namespace MysteriousDataProduct.Architecture
 
         private const string ConnectionString = "Server=tcp:h98ohmld2f.database.windows.net,1433;Database=BookSACK;User Id=JMSXTech@h98ohmld2f;Password=jmsx!2014;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
 
-        internal Dictionary<string, Dictionary<string, Word>> GetDictionaries()
+        internal static Dictionary<string, Dictionary<string, Word>> GetDictionaries()
         {
 
             var dictionaries = new Dictionary<string, Dictionary<string, Word>>
@@ -54,14 +54,14 @@ namespace MysteriousDataProduct.Architecture
             return dictionaries;
         }
 
-        internal bool Reset()
+        internal static bool Reset()
         {
             Execute(new SqlCommand("DELETE FROM Dictionaries;"));
 
             return true;
         }
 
-        internal void Update(string subcategory, Dictionary<string, Word> dictionary)
+        internal static void Update(string subcategory, Dictionary<string, Word> dictionary)
         {
 
             var command = new SqlCommand("DELETE FROM Dictionaries WHERE Subgenre=@Subgenre;");
@@ -74,7 +74,7 @@ namespace MysteriousDataProduct.Architecture
 
         }
 
-        public void Insert(Word word)
+        internal static void Insert(Word word)
         {
             var command = new SqlCommand("INSERT INTO Dictionaries (WordString, Subgenre, FrequencyPlus1, Probability) VALUES (@WordString, @Subgenre, @FrequencyPlus1, @Probability);");
 

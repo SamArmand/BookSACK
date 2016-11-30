@@ -21,10 +21,8 @@ namespace MysteriousDataProduct.Models
 				
 				if (sortedWordFrequency.Count == 0)
 					return;
-			
-				var dataAccess = new DataAccess();
 
-				var dictionaries = dataAccess.GetDictionaries();
+				var dictionaries = DataAccess.GetDictionaries();
 
 			    var probabilities = new Dictionary<string, double>
 			    {

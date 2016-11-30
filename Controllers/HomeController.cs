@@ -29,7 +29,7 @@ namespace MysteriousDataProduct.Controllers
         /// <returns>Returns a ViewResult with the Trainer view and TrainingBook model to be loaded.</returns>
         public ViewResult Trainer(string synopsis = "", string subgenre = "")
         {
-            return View("Trainer", StaticFunctions.CreateTrainingBook(new TrainingBook{ Synopsis = synopsis, Subgenre = subgenre}));
+            return View("Trainer", new TrainingBook{Synopsis = synopsis, Subgenre = subgenre});
         }
 
         /// <summary>

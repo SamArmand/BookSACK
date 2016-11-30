@@ -8,11 +8,11 @@ namespace MysteriousDataProduct.Architecture
     {
 
             // Define characters to strip from the input and do it
-            private static readonly string[] stripChars = { ";", ",", ".", "-", "_", "^", "(", ")", "[", "]", ":", "{", "}", "*", "!", "•", "—", "?", "\"", "~", "<", ">", "�", "'", "–", "|", "`", "/", "=", "+",
+            private static readonly string[] StripChars = { ";", ",", ".", "-", "_", "^", "(", ")", "[", "]", ":", "{", "}", "*", "!", "•", "—", "?", "\"", "~", "<", ">", "�", "'", "–", "|", "`", "/", "=", "+",
                 "\n", "\t", "\r" };
 
             // Define and remove stopwords
-            private static readonly string[] stopwords = new string[] {"about", "above", "above", "across", "after", "afterwards", "again", "against", "all", "almost", "alone", "along", "already", "also","although","always","among", "amongst", "amoungst", "amount", "and", "another", "any","anyhow","anyone","anything","anyway", "anywhere", "are", "around", "back","became", "because","become","becomes", "becoming", "been", "before", "beforehand", "behind", "being", "below", "beside", "besides", "between", "beyond", "bill", "both", "bottom","but", "call", "can", "cannot", "cant", "con", "could", "couldnt", "cry", "describe", "detail", "done", "down", "due", "during", "each", "eight", "either", "eleven","else", "elsewhere", "empty", "enough", "etc", "even", "ever", "every", "everyone", "everything", "everywhere", "except", "few", "fifteen", "fify", "fill", "find", "fire", "first", "five", "for", "former", "formerly", "forty", "found", "four", "from", "front", "full", "further", "get", "give", "had", "has", "hasnt", "have", "hence", "her", "here", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "him", "himself", "his", "how", "however", "hundred", "inc", "indeed", "interest", "into", "its", "itself", "keep", "last", "latter", "latterly", "least", "less", "ltd", "made", "many", "may", "meanwhile", "might", "mill", "mine", "more", "moreover", "most", "mostly", "move", "much", "must", "myself", "name", "namely", "neither", "never", "nevertheless", "next", "nine", "nobody", "none", "noone", "nor", "not", "nothing", "now", "nowhere", "off", "often", "once", "one", "only", "onto", "other", "others", "otherwise", "our", "ours", "ourselves", "out", "over", "own","part", "per", "perhaps", "please", "put", "rather", "same", "see", "seem", "seemed", "seeming", "seems", "serious", "several", "she", "should", "show", "side", "since", "sincere", "six", "sixty", "some", "somehow", "someone", "something", "sometime", "sometimes", "somewhere", "still", "such", "system", "take", "ten", "than", "that", "the", "their", "them", "themselves", "then", "thence", "there", "thereafter", "thereby", "therefore", "therein", "thereupon", "these", "they", "thick", "thin", "third", "this", "those", "though", "three", "through", "throughout", "thru", "thus", "together", "too", "top", "toward", "towards", "twelve", "twenty", "two", "under", "until", "upon", "very", "via", "was", "well", "were", "what", "whatever", "when", "whence", "whenever", "where", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who", "whoever", "whole", "whom", "whose", "why", "will", "with", "within", "without", "would", "yet", "you", "your", "yours", "yourself", "yourselves"};
+            private static readonly string[] Stopwords = {"about", "above", "above", "across", "after", "afterwards", "again", "against", "all", "almost", "alone", "along", "already", "also","although","always","among", "amongst", "amoungst", "amount", "and", "another", "any","anyhow","anyone","anything","anyway", "anywhere", "are", "around", "back","became", "because","become","becomes", "becoming", "been", "before", "beforehand", "behind", "being", "below", "beside", "besides", "between", "beyond", "bill", "both", "bottom","but", "call", "can", "cannot", "cant", "con", "could", "couldnt", "cry", "describe", "detail", "done", "down", "due", "during", "each", "eight", "either", "eleven","else", "elsewhere", "empty", "enough", "etc", "even", "ever", "every", "everyone", "everything", "everywhere", "except", "few", "fifteen", "fify", "fill", "find", "fire", "first", "five", "for", "former", "formerly", "forty", "found", "four", "from", "front", "full", "further", "get", "give", "had", "has", "hasnt", "have", "hence", "her", "here", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "him", "himself", "his", "how", "however", "hundred", "inc", "indeed", "interest", "into", "its", "itself", "keep", "last", "latter", "latterly", "least", "less", "ltd", "made", "many", "may", "meanwhile", "might", "mill", "mine", "more", "moreover", "most", "mostly", "move", "much", "must", "myself", "name", "namely", "neither", "never", "nevertheless", "next", "nine", "nobody", "none", "noone", "nor", "not", "nothing", "now", "nowhere", "off", "often", "once", "one", "only", "onto", "other", "others", "otherwise", "our", "ours", "ourselves", "out", "over", "own","part", "per", "perhaps", "please", "put", "rather", "same", "see", "seem", "seemed", "seeming", "seems", "serious", "several", "she", "should", "show", "side", "since", "sincere", "six", "sixty", "some", "somehow", "someone", "something", "sometime", "sometimes", "somewhere", "still", "such", "system", "take", "ten", "than", "that", "the", "their", "them", "themselves", "then", "thence", "there", "thereafter", "thereby", "therefore", "therein", "thereupon", "these", "they", "thick", "thin", "third", "this", "those", "though", "three", "through", "throughout", "thru", "thus", "together", "too", "top", "toward", "towards", "twelve", "twenty", "two", "under", "until", "upon", "very", "via", "was", "well", "were", "what", "whatever", "when", "whence", "whenever", "where", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who", "whoever", "whole", "whom", "whose", "why", "will", "with", "within", "without", "would", "yet", "you", "your", "yours", "yourself", "yourselves"};
             
 
             public static Dictionary<string, int> GenerateSortedWordFrequency(string inputString)
@@ -21,21 +21,20 @@ namespace MysteriousDataProduct.Architecture
                 // Create a new Dictionary object
                 var dictionary = new Dictionary<string, int>();
                 
-                if (inputString == "" || inputString == null)
+                if (string.IsNullOrEmpty(inputString))
                     return dictionary;	
 
                     // Convert our input to lowercase
-                inputString = inputString.ToLower();        
-    
+                inputString = inputString.ToLower();
 
-                foreach (string character in stripChars)
-                    inputString = inputString.Replace(character, " ");
-                
+
+                inputString = StripChars.Aggregate(inputString, (current, character) => current.Replace(character, " "));
+
                 // Split on spaces into a List of strings
                 var wordList = inputString.Split(' ').ToList();
     
 
-                foreach (string word in stopwords)
+                foreach (string word in Stopwords)
                 {
                     // While there's still an instance of a stopword in the wordList, remove it.
                     // If we don't use a while loop on this each call to Remove simply removes a single
@@ -98,7 +97,7 @@ namespace MysteriousDataProduct.Architecture
 
                     if (!dictionary.ContainsKey(kvp.Key)) {
 
-                        var Word = new Word() {
+                        var word = new Word() {
 
                             WordString = kvp.Key,
                             Subgenre = trainingBook.Subgenre,
@@ -106,7 +105,7 @@ namespace MysteriousDataProduct.Architecture
 
                         };
 
-                        dictionary.Add(Word.WordString, Word);
+                        dictionary.Add(word.WordString, word);
 
                     }
 
@@ -114,13 +113,10 @@ namespace MysteriousDataProduct.Architecture
 
                 }
 
-                float sum = 0f;
+                var sum = dictionary.Aggregate(0f, (current, kvp) => current + kvp.Value.FrequencyPlus1);
 
                 foreach (var kvp in dictionary)
-                    sum += kvp.Value.FrequencyPlus1;
-
-                foreach (var kvp in dictionary)
-                    kvp.Value.Probability = (float)kvp.Value.FrequencyPlus1 / sum;
+                    kvp.Value.Probability = kvp.Value.FrequencyPlus1 / sum;
                 
 
                 dataAccess.Update(trainingBook.Subgenre, dictionary);

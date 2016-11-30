@@ -13,60 +13,52 @@ namespace MysteriousDataProduct.Architecture
         internal Dictionary<string, Dictionary<string, Word>> GetDictionaries()
         {
 
-            var dictionaries = new Dictionary<string, Dictionary<string, Word>>();
+            var dictionaries = new Dictionary<string, Dictionary<string, Word>>
+            {
+                {"Critically Acclaimed Mysteries Set in 1800-1950", new Dictionary<string, Word>()},
+                {"Female-Centered Murder Mysteries Set in 1914-1945 England", new Dictionary<string, Word>()},
+                {"Historical Thrillers About Books and Art", new Dictionary<string, Word>()},
+                {"Mysteries Set in Victorian and Edwardian England", new Dictionary<string, Word>()},
+                {
+                    "Occult and Political Mysteries Set in Medieval and Renaissance Europe",
+                    new Dictionary<string, Word>()
+                }
+            };
 
-            dictionaries.Add("Critically Acclaimed Mysteries Set in 1800-1950", new Dictionary<string,Word>());
-            dictionaries.Add("Female-Centered Murder Mysteries Set in 1914-1945 England", new Dictionary<string,Word>());
-            dictionaries.Add("Historical Thrillers About Books and Art", new Dictionary<string,Word>());
-            dictionaries.Add("Mysteries Set in Victorian and Edwardian England", new Dictionary<string,Word>());
-            dictionaries.Add("Occult and Political Mysteries Set in Medieval and Renaissance Europe", new Dictionary<string,Word>());
 
-            var connection = new SqlConnection(ConnectionString);
+            var command = new SqlCommand("SELECT WordString, Subgenre, FrequencyPlus1, Probability FROM Dictionaries;");
 
-            var command = new SqlCommand("SELECT WordString, Subgenre, FrequencyPlus1, Probability FROM Dictionaries");
-
-
-            connection.Open();
-
-            command.Connection = connection;
+            Open(command);
 
             var reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-                      
-                var word = new Word() {};
 
-                word.WordString = reader.GetString(reader.GetOrdinal("WordString"));
-                word.Subgenre = reader.GetString(reader.GetOrdinal("Subgenre"));
-                word.FrequencyPlus1 = reader.GetInt32(reader.GetOrdinal("FrequencyPlus1"));
-                word.Probability = Convert.ToDouble(reader.GetFloat(reader.GetOrdinal("Probability")));
+                var word = new Word
+                {
+                    WordString = reader.GetString(reader.GetOrdinal("WordString")),
+                    Subgenre = reader.GetString(reader.GetOrdinal("Subgenre")),
+                    FrequencyPlus1 = reader.GetInt32(reader.GetOrdinal("FrequencyPlus1")),
+                    Probability = Convert.ToDouble(reader.GetFloat(reader.GetOrdinal("Probability")))
+                };
+
 
                 dictionaries[word.Subgenre].Add(word.WordString, word);
 
             }
 
             reader.Dispose();
-            command.Dispose();
-            connection.Dispose();
+
+            Dispose(command);
 
             return dictionaries;
         }
 
         internal bool Reset()
         {
-            var connection = new SqlConnection(ConnectionString);
 
-            var command = new SqlCommand("DELETE FROM Dictionaries;");
-
-            connection.Open();
-
-            command.Connection = connection;
-
-            command.ExecuteNonQuery();
-
-            command.Dispose();
-            connection.Dispose();
+            Execute(new SqlCommand("DELETE FROM Dictionaries;"));
 
             return true;
 
@@ -75,20 +67,11 @@ namespace MysteriousDataProduct.Architecture
         internal void Update(string subcategory, Dictionary<string, Word> dictionary)
         {
 
-            var connection = new SqlConnection(ConnectionString);
-
             var command = new SqlCommand("DELETE FROM Dictionaries WHERE Subgenre=@Subgenre;");
 
             command.Parameters.AddWithValue("@Subgenre", subcategory);
 
-            connection.Open();
-
-            command.Connection = connection;
-
-            command.ExecuteNonQuery();
-
-            command.Dispose();
-            connection.Dispose();
+            Execute(command);
 
             foreach (var kvp in dictionary)
                 Insert(kvp.Value);
@@ -97,8 +80,6 @@ namespace MysteriousDataProduct.Architecture
 
         public void Insert(Word word)
         {
-            var connection = new SqlConnection(ConnectionString);
-
             var command = new SqlCommand("INSERT INTO Dictionaries (WordString, Subgenre, FrequencyPlus1, Probability) VALUES (@WordString, @Subgenre, @FrequencyPlus1, @Probability);");
 
             command.Parameters.AddWithValue("@WordString", word.WordString);
@@ -106,14 +87,29 @@ namespace MysteriousDataProduct.Architecture
             command.Parameters.AddWithValue("@FrequencyPlus1", word.FrequencyPlus1);
             command.Parameters.AddWithValue("@Probability", word.Probability);
 
-            connection.Open();
+            Execute(command);
+        }
 
-            command.Connection = connection;
+        private static void Execute(SqlCommand command)
+        {
 
+            Open(command);
             command.ExecuteNonQuery();
+            Dispose(command);
 
+        }
+
+        private static void Open(SqlCommand command)
+        {
+            command.Connection = new SqlConnection(ConnectionString);
+            command.Connection.Open();
+
+        }
+
+        private static void Dispose(SqlCommand command)
+        {
+            command.Connection.Dispose();
             command.Dispose();
-            connection.Dispose();
         }
 
     }

@@ -21,51 +21,29 @@ namespace MysteriousDataProduct.Architecture
                 // Create a new Dictionary object
                 var dictionary = new Dictionary<string, int>();
                 
-                if (string.IsNullOrEmpty(inputString))
-                    return dictionary;	
+                if (string.IsNullOrEmpty(inputString)) return dictionary;
 
-                    // Convert our input to lowercase
+                // Convert our input to lowercase
                 inputString = inputString.ToLower();
 
 
-                inputString = StripChars.Aggregate(inputString, (current, character) => current.Replace(character, " "));
-
+                // Remove special characters
                 // Split on spaces into a List of strings
-                var wordList = inputString.Split(' ').ToList();
-    
+                // Remove stopwords
+                var wordList =
+                    (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
+                        .Split(' ').ToList().Except(Stopwords);
 
-                foreach (string word in Stopwords)
-                {
-                    // While there's still an instance of a stopword in the wordList, remove it.
-                    // If we don't use a while loop on this each call to Remove simply removes a single
-                    // instance of the stopword from our wordList, and we can't call Replace on the
-                    // entire string (as opposed to the individual words in the string) as it's
-                    // too indiscriminate (i.e. removing 'and' will turn words like 'bandage' into 'bdage'!)
-                    while ( wordList.Contains(word) )
-                        wordList.Remove(word);
 
-                }
-    
                 // Loop over all over the words in our wordList...
-                foreach (string word in wordList)
-                {
+                // If the length of the word is at least three letters...
+                // ...check if the dictionary already has the word.
+                // If we already have the word in the dictionary, increment the count of how many times it appears
+                // Otherwise, if it's a new word then add it to the dictionary with an initial count of 1
+                foreach (var word in wordList)
+                    if (word.Length >= 3)
+                        dictionary[word] = dictionary.ContainsKey(word) ? dictionary[word] + 1 : 1;
 
-                    // If the length of the word is at least three letters...
-                    if (word.Length >= 3) 
-                    {
-                        // ...check if the dictionary already has the word.
-                        if ( dictionary.ContainsKey(word) )
-                            dictionary[word]++;
-                            // If we already have the word in the dictionary, increment the count of how many times it appears
-
-                        else
-                            dictionary[word] = 1;
-                            // Otherwise, if it's a new word then add it to the dictionary with an initial count of 1
-                        
-                    } // End of word length check
-    
-                } // End of loop over each word in our input
-    
                 // Create a dictionary sorted by value (i.e. how many times a word occurs)
                 return (from entry in dictionary orderby entry.Value descending select entry).ToDictionary(pair => pair.Key, pair => pair.Value);
     

@@ -45,7 +45,6 @@ namespace MysteriousDataProduct.Architecture
 
 
                 dictionaries[word.Subgenre].Add(word.WordString, word);
-
             }
 
             reader.Dispose();
@@ -57,11 +56,9 @@ namespace MysteriousDataProduct.Architecture
 
         internal bool Reset()
         {
-
             Execute(new SqlCommand("DELETE FROM Dictionaries;"));
 
             return true;
-
         }
 
         internal void Update(string subcategory, Dictionary<string, Word> dictionary)
@@ -73,8 +70,7 @@ namespace MysteriousDataProduct.Architecture
 
             Execute(command);
 
-            foreach (var kvp in dictionary)
-                Insert(kvp.Value);
+            foreach (var kvp in dictionary) Insert(kvp.Value);
 
         }
 
@@ -92,18 +88,15 @@ namespace MysteriousDataProduct.Architecture
 
         private static void Execute(SqlCommand command)
         {
-
             Open(command);
             command.ExecuteNonQuery();
             Dispose(command);
-
         }
 
         private static void Open(SqlCommand command)
         {
             command.Connection = new SqlConnection(ConnectionString);
             command.Connection.Open();
-
         }
 
         private static void Dispose(SqlCommand command)

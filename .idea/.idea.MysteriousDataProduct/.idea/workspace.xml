@@ -21,47 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="launch.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../.vscode/launch.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1480339643000" expanded="true" signature="0:1280" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="48:1278" ph="[...]" />
-                <marker date="1480339643000" expanded="true" signature="58:1097" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="487:898" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="595:714" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="739:796" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="823:884" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="919:990" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="1021:1087" ph="{...}" />
-                <marker date="1480339643000" expanded="true" signature="1107:1272" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tasks.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../.vscode/tasks.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1480024610000" expanded="true" signature="0:334" ph="{...}" />
-                <marker date="1480024610000" expanded="true" signature="108:332" ph="[...]" />
-                <marker date="1480024610000" expanded="true" signature="118:326" ph="{...}" />
-                <marker date="1480024610000" expanded="true" signature="173:236" ph="[...]" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DataAccess.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Architecture/DataAccess.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <marker date="1480510885000" expanded="true" signature="6:112" ph="..." />
                 <marker date="1480510885000" expanded="true" signature="158:3708" ph="{...}" />
@@ -80,23 +44,139 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StaticFunctions.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BookController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Controllers/BookController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+              <folding>
+                <marker date="1480513580000" expanded="true" signature="6:67" ph="..." />
+                <marker date="1480513580000" expanded="true" signature="112:694" ph="{...}" />
+                <marker date="1480513580000" expanded="true" signature="120:211" ph="/// The Controller for all views within the Home view. ... " />
+                <marker date="1480513580000" expanded="true" signature="288:691" ph="{...}" />
+                <marker date="1480513580000" expanded="true" signature="304:575" ph="/// API method for inserting training book data. ... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StaticFunctions.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Architecture/StaticFunctions.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
               <folding>
-                <marker date="1480512477000" expanded="true" signature="6:88" ph="..." />
-                <marker date="1480512477000" expanded="true" signature="134:6935" ph="{...}" />
-                <marker date="1480512477000" expanded="true" signature="169:6932" ph="{...}" />
-                <marker date="1480512477000" expanded="true" signature="302:489" ph="{...}" />
-                <marker date="1480512477000" expanded="true" signature="3374:5057" ph="{...}" />
-                <marker date="1480512477000" expanded="true" signature="4038:4590" ph="/* Remove special characters ... */" />
-                <marker date="1480512477000" expanded="true" signature="5071:5492" ph="/// Function that handles the logic of creating a TrainingBook object and inserting it into the database. ... " />
-                <marker date="1480512477000" expanded="true" signature="5585:5766" ph="{...}" />
-                <marker date="1480512477000" expanded="true" signature="5649:5749" ph="{...}" />
-                <marker date="1480512477000" expanded="true" signature="5853:6923" ph="{...}" />
-                <marker date="1480512477000" expanded="true" signature="6188:6376" ph="{...}" />
+                <marker date="1480514041000" expanded="true" signature="6:52" ph="..." />
+                <marker date="1480514041000" expanded="true" signature="98:5713" ph="{...}" />
+                <marker date="1480514041000" expanded="true" signature="133:5710" ph="{...}" />
+                <marker date="1480514041000" expanded="true" signature="278:509" ph="{...}" />
+                <marker date="1480514041000" expanded="true" signature="613:3926" ph="{...}" />
+                <marker date="1480514041000" expanded="true" signature="4039:5703" ph="{...}" />
+                <marker date="1480514041000" expanded="true" signature="4704:5256" ph="/* Remove special characters ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrainingBookController.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Controllers/TrainingBookController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+              <folding>
+                <marker date="1480514145000" expanded="true" signature="6:109" ph="..." />
+                <marker date="1480514145000" expanded="true" signature="154:1098" ph="{...}" />
+                <marker date="1480514145000" expanded="true" signature="162:253" ph="/// The Controller for all views within the Home view. ... " />
+                <marker date="1480514145000" expanded="true" signature="338:1095" ph="{...}" />
+                <marker date="1480514145000" expanded="true" signature="354:612" ph="/// API method for inserting training book data. ... " />
+                <marker date="1480514145000" expanded="true" signature="703:775" ph="{...}" />
+                <marker date="1480514145000" expanded="true" signature="785:946" ph="/// API method for resetting training book data. ... " />
+                <marker date="1480514145000" expanded="true" signature="1003:1088" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Models/Book.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+              <folding>
+                <marker date="1480514171000" expanded="true" signature="6:94" ph="..." />
+                <marker date="1480514171000" expanded="true" signature="134:1600" ph="{...}" />
+                <marker date="1480514171000" expanded="true" signature="160:1597" ph="{...}" />
+                <marker date="1480514171000" expanded="true" signature="646:1016" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TrainingBook.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Models/TrainingBook.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+              <folding>
+                <marker date="1480514199000" expanded="true" signature="6:94" ph="..." />
+                <marker date="1480514199000" expanded="true" signature="134:1895" ph="{...}" />
+                <marker date="1480514199000" expanded="true" signature="168:1892" ph="{...}" />
+                <marker date="1480514199000" expanded="true" signature="965:1884" ph="{...}" />
+                <marker date="1480514199000" expanded="true" signature="1250:1409" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Word.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Models/Word.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1480507387000" expanded="true" signature="39:259" ph="{...}" />
+                <marker date="1480507387000" expanded="true" signature="64:257" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="launchSettings.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Properties/launchSettings.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1480052837000" expanded="true" signature="0:618" ph="{...}" />
+                <marker date="1480052837000" expanded="true" signature="19:193" ph="{...}" />
+                <marker date="1480052837000" expanded="true" signature="112:189" ph="{...}" />
+                <marker date="1480052837000" expanded="true" signature="209:616" ph="{...}" />
+                <marker date="1480052837000" expanded="true" signature="230:385" ph="{...}" />
+                <marker date="1480052837000" expanded="true" signature="326:379" ph="{...}" />
+                <marker date="1480052837000" expanded="true" signature="416:612" ph="{...}" />
+                <marker date="1480052837000" expanded="true" signature="553:606" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_ViewImports.cshtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../Views/_ViewImports.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_ViewStart.cshtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../Views/_ViewStart.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1480024592000" expanded="true" signature="0:28" ph="@..." />
               </folding>
             </state>
           </provider>
@@ -108,7 +188,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../../Architecture/DataAccess.cs" />
+        <option value="$PROJECT_DIR$/../../Controllers/BookController.cs" />
         <option value="$PROJECT_DIR$/../../Architecture/StaticFunctions.cs" />
+        <option value="$PROJECT_DIR$/../../Controllers/TrainingBookController.cs" />
+        <option value="$PROJECT_DIR$/../../Models/Book.cs" />
+        <option value="$PROJECT_DIR$/../../Models/TrainingBook.cs" />
       </list>
     </option>
   </component>
@@ -156,6 +240,78 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MysteriousDataProduct" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Properties" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct (1 project)" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MysteriousDataProduct" />
+              <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.jetbrains.resharper.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -240,12 +396,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1480509860859</updated>
-      <workItem from="1480509863986" duration="2606000" />
+      <workItem from="1480509863986" duration="4161000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2606000" />
+    <option name="totallyTimeSpent" value="4161000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -325,8 +481,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Architecture/DataAccess.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1480510885000" expanded="true" signature="6:112" ph="..." />
             <marker date="1480510885000" expanded="true" signature="158:3708" ph="{...}" />
@@ -344,22 +500,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Controllers/BookController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+          <folding>
+            <marker date="1480513580000" expanded="true" signature="6:67" ph="..." />
+            <marker date="1480513580000" expanded="true" signature="112:694" ph="{...}" />
+            <marker date="1480513580000" expanded="true" signature="120:211" ph="/// The Controller for all views within the Home view. ... " />
+            <marker date="1480513580000" expanded="true" signature="288:691" ph="{...}" />
+            <marker date="1480513580000" expanded="true" signature="304:575" ph="/// API method for inserting training book data. ... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../Architecture/StaticFunctions.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding>
-            <marker date="1480512477000" expanded="true" signature="6:88" ph="..." />
-            <marker date="1480512477000" expanded="true" signature="134:6935" ph="{...}" />
-            <marker date="1480512477000" expanded="true" signature="169:6932" ph="{...}" />
-            <marker date="1480512477000" expanded="true" signature="302:489" ph="{...}" />
-            <marker date="1480512477000" expanded="true" signature="3374:5057" ph="{...}" />
-            <marker date="1480512477000" expanded="true" signature="4038:4590" ph="/* Remove special characters ... */" />
-            <marker date="1480512477000" expanded="true" signature="5071:5492" ph="/// Function that handles the logic of creating a TrainingBook object and inserting it into the database. ... " />
-            <marker date="1480512477000" expanded="true" signature="5585:5766" ph="{...}" />
-            <marker date="1480512477000" expanded="true" signature="5649:5749" ph="{...}" />
-            <marker date="1480512477000" expanded="true" signature="5853:6923" ph="{...}" />
-            <marker date="1480512477000" expanded="true" signature="6188:6376" ph="{...}" />
+            <marker date="1480514041000" expanded="true" signature="6:52" ph="..." />
+            <marker date="1480514041000" expanded="true" signature="98:5713" ph="{...}" />
+            <marker date="1480514041000" expanded="true" signature="133:5710" ph="{...}" />
+            <marker date="1480514041000" expanded="true" signature="278:509" ph="{...}" />
+            <marker date="1480514041000" expanded="true" signature="613:3926" ph="{...}" />
+            <marker date="1480514041000" expanded="true" signature="4039:5703" ph="{...}" />
+            <marker date="1480514041000" expanded="true" signature="4704:5256" ph="/* Remove special characters ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Controllers/TrainingBookController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding>
+            <marker date="1480514145000" expanded="true" signature="6:109" ph="..." />
+            <marker date="1480514145000" expanded="true" signature="154:1098" ph="{...}" />
+            <marker date="1480514145000" expanded="true" signature="162:253" ph="/// The Controller for all views within the Home view. ... " />
+            <marker date="1480514145000" expanded="true" signature="338:1095" ph="{...}" />
+            <marker date="1480514145000" expanded="true" signature="354:612" ph="/// API method for inserting training book data. ... " />
+            <marker date="1480514145000" expanded="true" signature="703:775" ph="{...}" />
+            <marker date="1480514145000" expanded="true" signature="785:946" ph="/// API method for resetting training book data. ... " />
+            <marker date="1480514145000" expanded="true" signature="1003:1088" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Models/Book.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding>
+            <marker date="1480514171000" expanded="true" signature="6:94" ph="..." />
+            <marker date="1480514171000" expanded="true" signature="134:1600" ph="{...}" />
+            <marker date="1480514171000" expanded="true" signature="160:1597" ph="{...}" />
+            <marker date="1480514171000" expanded="true" signature="646:1016" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Models/TrainingBook.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <marker date="1480514199000" expanded="true" signature="6:94" ph="..." />
+            <marker date="1480514199000" expanded="true" signature="134:1895" ph="{...}" />
+            <marker date="1480514199000" expanded="true" signature="168:1892" ph="{...}" />
+            <marker date="1480514199000" expanded="true" signature="965:1884" ph="{...}" />
+            <marker date="1480514199000" expanded="true" signature="1250:1409" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Models/Word.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1480507387000" expanded="true" signature="39:259" ph="{...}" />
+            <marker date="1480507387000" expanded="true" signature="64:257" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Properties/launchSettings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1480052837000" expanded="true" signature="0:618" ph="{...}" />
+            <marker date="1480052837000" expanded="true" signature="19:193" ph="{...}" />
+            <marker date="1480052837000" expanded="true" signature="112:189" ph="{...}" />
+            <marker date="1480052837000" expanded="true" signature="209:616" ph="{...}" />
+            <marker date="1480052837000" expanded="true" signature="230:385" ph="{...}" />
+            <marker date="1480052837000" expanded="true" signature="326:379" ph="{...}" />
+            <marker date="1480052837000" expanded="true" signature="416:612" ph="{...}" />
+            <marker date="1480052837000" expanded="true" signature="553:606" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Views/_ViewImports.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Views/_ViewStart.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1480024592000" expanded="true" signature="0:28" ph="@..." />
           </folding>
         </state>
       </provider>

@@ -20,7 +20,7 @@ namespace MysteriousDataProduct.Controllers
         [HttpPost]
         public ObjectResult Train([FromBody] TrainingBook trainingBook)
         {
-            return(new ObjectResult(StaticFunctions.CreateTrainingBook(trainingBook)));
+            return(new ObjectResult(trainingBook));
         }
 
         /// <summary>

@@ -1,18 +1,6 @@
 ﻿clear
 
-$connectionString = "Data Source=h98ohmld2f.database.windows.net;Initial Catalog=BookSACK;Integrated Security=False;User ID=JMSXTech;Password=jmsx!2014;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;"
-
-$connection = New-Object -TypeName System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$command = $connection.CreateCommand()
-
-$query = "DELETE FROM Dictionaries;"
-
-$command.CommandText = $query
-$connection.Open()
-$command.ExecuteNonQuery()
-
-$connection.close()
+Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method Delete
 
 $books = Import-Csv "books.csv"
 
@@ -24,7 +12,7 @@ foreach ($book in $books) {
 
         Write-Host "Completed $count out of $($books.Count)"
 
-        Invoke-WebRequest -Uri "http://localhost:5000/api/TrainingBook" -Method POST -Body (ConvertTo-Json @{synopsis = $book.Synopsis; subgenre = $book.Subgenre}) -ContentType 'application/json'
+        Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method POST -Body (ConvertTo-Json @{synopsis = $book.Synopsis; subgenre = $book.Subgenre}) -ContentType 'application/json'
         
         $count++
 
@@ -33,6 +21,39 @@ foreach ($book in $books) {
     clear
 
 }
+
+$correct = 0;
+$total = 0;
+
+foreach ($book in $books) {
+
+    if ($book.Holdout -ne "Test") {
+        continue
+    }
+
+    $result = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/Book" -Method Post -Body (ConvertTo-Json @{synopsis = $book.Synopsis}) -ContentType 'application/json'
+    
+    if ($book.Subgenre -eq $result.Content) {
+
+        $correct++
+        Write-Host $result.Content -ForegroundColor Green
+
+    }
+    
+    else {
+        
+        Write-Host "-----------------------------------------------------" -ForegroundColor Red
+        write-Host "PREDICTED: $($result.Content)" -ForegroundColor Green
+        write-Host "ACTUAL: $($book.Subgenre)"
+        Write-Host "-----------------------------------------------------" -ForegroundColor Red
+
+    }
+
+    $total++
+
+}
+
+Write-Host "Results: $correct/$total" 
 
 #localhost:5000
 #booksack.azurewebsites.net

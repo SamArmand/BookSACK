@@ -1,5 +1,3 @@
-$connectionString = "Data Source=h98ohmld2f.database.windows.net;Initial Catalog=BookSACK;Integrated Security=False;User ID=JMSXTech;Password=jmsx!2014;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;"
-
 $books = Import-Csv "books.csv"
 
 $correct = 0;
@@ -11,13 +9,10 @@ foreach ($book in $books) {
         continue
     }
 
-    $params = @{
-        synopsis = $book.Synopsis;
-    }
+    $params = 
 
-    $result = Invoke-WebRequest -Uri "http://localhost:5000/api/Book" -Method POST -Body (ConvertTo-Json $params) -ContentType 'application/json'
+    $result = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/Book" -Method POST -Body (ConvertTo-Json @{synopsis = $book.Synopsis}) -ContentType 'application/json'
     
-
     if ($book.Subgenre -eq $result.Content) {
 
         $correct++
@@ -26,7 +21,6 @@ foreach ($book in $books) {
     }
     
     else {
-
         
         Write-host "-----------------------------------------------------" -foregroundcolor "red"
         write-host "PREDICTED: $($result.Content)" -foregroundcolor "red"
@@ -35,13 +29,9 @@ foreach ($book in $books) {
 
     }
 
-
     $total++
-
 
 }
 
-$tally = "$correct/$total"
-
-Write-Host $tally 
+Write-Host "Results: $correct/$total" 
 

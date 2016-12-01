@@ -9,24 +9,18 @@ foreach ($book in $books) {
         continue
     }
 
-    $params = 
-
     $result = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/Book" -Method POST -Body (ConvertTo-Json @{synopsis = $book.Synopsis}) -ContentType 'application/json'
     
     if ($book.Subgenre -eq $result.Content) {
-
-        $correct++
-        write-host $result.Content -ForegroundColor "green"
-
+        ++$correct
+        Write-Host "$($result.Content)" -ForegroundColor Green
     }
     
     else {
-        
-        Write-host "-----------------------------------------------------" -foregroundcolor "red"
-        write-host "PREDICTED: $($result.Content)" -foregroundcolor "red"
+        Write-host "-----------------------------------------------------" -ForegroundColor Red
+        write-host "PREDICTED: $($result.Content)" -ForegroundColor Red
         write-host "ACTUAL: $($book.Subgenre)"
-        Write-host "-----------------------------------------------------" -foregroundcolor "red"
-
+        Write-host "-----------------------------------------------------" -ForegroundColor Red
     }
 
     $total++

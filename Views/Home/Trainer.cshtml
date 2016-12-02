@@ -20,12 +20,6 @@
     </div>
   </form>
   <div class="col-md-6">
-    <ul>
-      @foreach (var kvp in @Model.SortedWordFrequency) {
-      <li>
-        @kvp.Key : @kvp.Value
-      </li>
-      }
-    </ul>
+    @Model.TableForView()
   </div>
 </div>

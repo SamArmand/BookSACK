@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using Microsoft.AspNetCore.Html;
 using MysteriousDataProduct.Architecture;
 
 namespace MysteriousDataProduct.Models
@@ -34,7 +36,7 @@ namespace MysteriousDataProduct.Models
             }
         }
 		
-		public Dictionary<string, int> SortedWordFrequency {get; set;}
+		public Dictionary<string, int> SortedWordFrequency {get; set;} = new Dictionary<string, int>();
 
         private void Process() 
         {
@@ -61,5 +63,19 @@ namespace MysteriousDataProduct.Models
             _processed = true;
 
         }
+
+        public HtmlString TableForView() 
+		{
+			if (string.IsNullOrEmpty(_synopsis)) return HtmlString.Empty;
+
+			StringBuilder sb = (new StringBuilder())
+				.Append("<table class='table'><thead class='thead-inverse'><tr><th>Word</th><th>Frequency</th></tr></thead><tbody>");
+
+			foreach (var word in SortedWordFrequency) 
+				sb.Append("<tr><td>").Append(word.Key).Append("</td><td>")
+					.Append(word.Value).Append("</td></tr>");
+
+			return new HtmlString(sb.Append("</tbody></table>").ToString());
+		}
     }
 }

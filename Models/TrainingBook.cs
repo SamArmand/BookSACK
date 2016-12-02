@@ -4,10 +4,8 @@ using MysteriousDataProduct.Architecture;
 
 namespace MysteriousDataProduct.Models
 {
-
     public class TrainingBook 
     {
-
         bool _processed;
 
         private string _synopsis = string.Empty;
@@ -16,18 +14,19 @@ namespace MysteriousDataProduct.Models
         public string Synopsis
         {
 			get {return _synopsis;} 
-			set {
+			set 
+            {
                 if (value != null) _synopsis = value; 
 				SortedWordFrequency = StaticFunctions.GenerateSortedWordFrequency(value);
 
                 if (!_processed && _subgenre != string.Empty) Process();
-
-				}
+            }
         }
 
         public string Subgenre 
         {
             get {return _subgenre;} 
+
             set 
             {
                 if (value != null) _subgenre = value;
@@ -39,27 +38,18 @@ namespace MysteriousDataProduct.Models
 
         private void Process() 
         {
-
             var dictionary = DataAccess.GetDictionaries()[Subgenre];
 
-            foreach (var kvp in SortedWordFrequency) {
-
-                if (!dictionary.ContainsKey(kvp.Key)) {
-
-                    var word = new Word() {
-
+            foreach (var kvp in SortedWordFrequency) 
+            {
+                if (!dictionary.ContainsKey(kvp.Key))
+                    dictionary.Add(kvp.Key, new Word()
+                    {
                         WordString = kvp.Key,
                         Subgenre = Subgenre,
-                        FrequencyPlus1 = 1
-
-                    };
-
-                    dictionary.Add(word.WordString, word);
-
-                }
+                    });
 
                 dictionary[kvp.Key].FrequencyPlus1 += kvp.Value;             
-
             }
 
             var sum = dictionary.Aggregate(0f, (current, kvp) => current + kvp.Value.FrequencyPlus1);
@@ -71,8 +61,5 @@ namespace MysteriousDataProduct.Models
             _processed = true;
 
         }
-
-
     }
-
 }

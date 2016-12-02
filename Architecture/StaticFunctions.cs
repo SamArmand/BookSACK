@@ -91,10 +91,12 @@ namespace MysteriousDataProduct.Architecture
                 inputString = inputString.ToLower();
 
                 // Remove special characters
-                // Split on spaces into a List of strings
+                // Split on spaces into array
+                // Remove all words shorter than 3 characters
+                // Turn into a list
                 var wordList =
                     (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
-                        .Split(' ').ToList();
+                        .Split(' ').Where(w => w.Length >= 3).ToList();
 
                 // Remove stopwords
                 foreach (var stopword in Stopwords) while (wordList.Contains(stopword)) wordList.Remove(stopword);
@@ -104,7 +106,7 @@ namespace MysteriousDataProduct.Architecture
                 // ...check if the dictionary already has the word.
                 // If we already have the word in the dictionary, increment the count of how many times it appears
                 // Otherwise, if it's a new word then add it to the dictionary with an initial count of 1
-                foreach (var word in wordList.Where(w => w.Length >= 3)) //if (word.Length >= 3)
+                foreach (var word in wordList)
                         dictionary[word] = dictionary.ContainsKey(word) ? dictionary[word] + 1 : 1;
 
                 // Create a dictionary sorted by value (i.e. how many times a word occurs)

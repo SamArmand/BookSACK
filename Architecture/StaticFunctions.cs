@@ -97,7 +97,7 @@ namespace MysteriousDataProduct.Architecture
                 // Turn into a list
                 var wordList =
                     (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
-                        .Split(' ').Where(w => w.Length >= 3).Except(Stopwords.AsEnumerable()).ToList();
+                        .Split(' ').Where(w => w.Length >= 3 && !Stopwords.Contains(w)).ToList();
 
                 // Remove stopwords
                 //foreach (var stopword in Stopwords) while (wordList.Contains(stopword)) wordList.Remove(stopword);

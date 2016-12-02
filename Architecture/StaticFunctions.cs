@@ -88,8 +88,6 @@ namespace MysteriousDataProduct.Architecture
                 if (string.IsNullOrEmpty(inputString)) return dictionary;
 
                 // Convert our input to lowercase
-                inputString = inputString.ToLower();
-
                 // Remove special characters
                 // Split on spaces into array
                 // Keep only words at least 3 characters long that are not stopwords
@@ -99,8 +97,9 @@ namespace MysteriousDataProduct.Architecture
                 // ...check if the dictionary already has the word.
                 // If we already have the word in the dictionary, increment the count of how many times it appears
                 // Otherwise, if it's a new word then add it to the dictionary with an initial count of 1
+                // All in one line of code...
                 foreach (var word in 
-                    (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
+                    (StripChars.Aggregate(inputString.ToLower(), (current, stripChar) => current.Replace(stripChar, " ")))
                         .Split(' ').Where(w => w.Length >= 3 && !Stopwords.Contains(w)).ToList())
                     dictionary[word] = dictionary.ContainsKey(word) ? dictionary[word] + 1 : 1;
 

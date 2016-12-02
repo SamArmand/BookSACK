@@ -93,13 +93,14 @@ namespace MysteriousDataProduct.Architecture
                 // Remove special characters
                 // Split on spaces into array
                 // Remove all words shorter than 3 characters
+                // Remove all stopwords
                 // Turn into a list
                 var wordList =
                     (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
-                        .Split(' ').Where(w => w.Length >= 3).ToList();
+                        .Split(' ').Where(w => w.Length >= 3).Except(Stopwords).ToList();
 
                 // Remove stopwords
-                foreach (var stopword in Stopwords) while (wordList.Contains(stopword)) wordList.Remove(stopword);
+                //foreach (var stopword in Stopwords) while (wordList.Contains(stopword)) wordList.Remove(stopword);
 
                 // Loop over all over the words in our wordList...
                 // If the length of the word is at least three letters...

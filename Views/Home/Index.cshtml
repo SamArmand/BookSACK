@@ -1,32 +1,18 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
-
-@model MysteriousDataProduct.Models.Book
-
+@{ ViewData["Title"] = "Home Page"; } @model MysteriousDataProduct.Models.Book
 <div class="col-xs-12">
-
-<form asp-action="Index" class="col-xs-6">
-
-  <div class="form-group row" >
-    <label for="exampleTextarea">Insert book synopsis here</label>
-    <textarea class="form-control" name="synopsis" rows="5">@Model.Synopsis</textarea>
-    <br/>
-    <div class="alert alert-info"><h3>@Model.Subgenre</h3></div>
-  </div>
-
-
-  <div class="form-group row" >
-
-<button type="submit" class="btn btn-primary">Submit</button>
-
-  </div>
-
-
+  <form asp-action="Index" class="col-xs-6">
+    <div class="form-group row">
+      <label for="exampleTextarea">Insert book synopsis here</label>
+      <textarea class="form-control" name="synopsis" rows="5">@Model.Synopsis</textarea>
+      <br/>
+      <div class="alert alert-info">
+        <h3>@Model.Subgenre</h3>
+      </div>
+    </div>
+    <div class="form-group row">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </form>
-
   <div class="col-md-6">
-
   </div>
-
 </div>

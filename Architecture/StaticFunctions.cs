@@ -104,7 +104,7 @@ namespace MysteriousDataProduct.Architecture
                 // ...check if the dictionary already has the word.
                 // If we already have the word in the dictionary, increment the count of how many times it appears
                 // Otherwise, if it's a new word then add it to the dictionary with an initial count of 1
-                foreach (var word in wordList) if (word.Length >= 3)
+                foreach (var word in wordList.Where(w => w.Length >= 3)) //if (word.Length >= 3)
                         dictionary[word] = dictionary.ContainsKey(word) ? dictionary[word] + 1 : 1;
 
                 // Create a dictionary sorted by value (i.e. how many times a word occurs)

@@ -1,20 +1,12 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
-
-@model MysteriousDataProduct.Models.TrainingBook
+@{ ViewData["Title"] = "Home Page"; } @model MysteriousDataProduct.Models.TrainingBook
 <div class="col-xs-12">
-
-<form asp-action="Trainer" class="col-xs-6">
-
-  <div class="form-group row" >
-    <label for="exampleTextarea">Insert book synopsis here</label>
-    <textarea class="form-control" name="synopsis" rows="5">@Model.Synopsis</textarea>
-
-  </div>
-
-<div class="form-group row">
-    <select name="Subgenre" class="custom-select">
+  <form asp-action="Trainer" class="col-xs-6">
+    <div class="form-group row">
+      <label for="exampleTextarea">Insert book synopsis here</label>
+      <textarea class="form-control" name="synopsis" rows="5">@Model.Synopsis</textarea>
+    </div>
+    <div class="form-group row">
+      <select name="Subgenre" class="custom-select">
         <option selected value="">Select one</option>
         <option value="Critically Acclaimed Mysteries Set in 1800-1950">Critically Acclaimed Mysteries Set in 1800-1950</option>
         <option value="Female-Centered Murder Mysteries Set in 1914-1945 England">Female-Centered Murder Mysteries Set in 1914-1945 England</option>
@@ -22,30 +14,18 @@
         <option value="Mysteries Set in Victorian and Edwardian England">Mysteries Set in Victorian and Edwardian England</option>
         <option value="Occult and Political Mysteries Set in Medieval and Renaissance Europe">Occult and Political Mysteries Set in Medieval and Renaissance Europe</option>
     </select>
-</div>
-
-  <div class="form-group row" >
-
-<button type="submit" class="btn btn-primary">Submit</button>
-
-  </div>
-
-
+    </div>
+    <div class="form-group row">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </form>
-
   <div class="col-md-6">
-
     <ul>
-
-      @foreach (var kvp in @Model.SortedWordFrequency)
-      {
-        <li>
-          @kvp.Key : @kvp.Value
-        </li>
+      @foreach (var kvp in @Model.SortedWordFrequency) {
+      <li>
+        @kvp.Key : @kvp.Value
+      </li>
       }
-
     </ul>
-
   </div>
-
 </div>

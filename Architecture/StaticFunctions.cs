@@ -18,17 +18,17 @@ namespace MysteriousDataProduct.Architecture
             private static readonly string[] Stopwords =
             {
                 "about", "above", "above", "across", "after", "afterwards", "again", "against", "all", "almost",
-                "alone", "along", "already", "also","although","always","among", "amongst", "amoungst", "amount",
-                "and", "another", "any","anyhow","anyone","anything","anyway", "anywhere", "are", "around",
+                "alone", "along", "already", "also", "although", "always", "among", "amongst", "amoungst", "amount",
+                "and", "another", "any", "anyhow", "anyone", "anything", "anyway", "anywhere", "are", "around",
 
-                "back","became", "because","become","becomes", "becoming", "been", "before", "beforehand", "behind",
-                "being", "below", "beside", "besides", "between", "beyond", "bill", "both", "bottom","but",
+                "back", "became", "because","become","becomes", "becoming", "been", "before", "beforehand", "behind",
+                "being", "below", "beside", "besides", "between", "beyond", "bill", "both", "bottom", "but",
 
                 "call", "can", "cannot", "cant", "con", "could", "couldnt", "cry",
 
                 "describe", "detail", "done", "down", "due", "during",
 
-                "each", "eight", "either", "eleven","else", "elsewhere", "empty", "enough", "etc", "even", "ever",
+                "each", "eight", "either", "eleven", "else", "elsewhere", "empty", "enough", "etc", "even", "ever",
                 "every", "everyone", "everything", "everywhere", "except",
 
                 "few", "fifteen", "fify", "fill", "find", "fire", "first", "five", "for", "former", "formerly", "forty",
@@ -97,7 +97,7 @@ namespace MysteriousDataProduct.Architecture
                 // Turn into a list
                 var wordList =
                     (StripChars.Aggregate(inputString, (current, stripChar) => current.Replace(stripChar, " ")))
-                        .Split(' ').Where(w => w.Length >= 3).Except(Stopwords).ToList();
+                        .Split(' ').Where(w => w.Length >= 3).Except(Stopwords.AsEnumerable()).ToList();
 
                 // Remove stopwords
                 //foreach (var stopword in Stopwords) while (wordList.Contains(stopword)) wordList.Remove(stopword);

@@ -10,7 +10,6 @@ namespace MysteriousDataProduct.Controllers
     [Route("api/[controller]")]
     public class BookController : Controller
     {
-
         /// <summary>
         /// API method for inserting training book data.
         /// </summary>
@@ -19,5 +18,4 @@ namespace MysteriousDataProduct.Controllers
         [HttpPost]
         public ObjectResult Test([FromBody] Book book) => new ObjectResult(book.Subgenre);
     }
-
 }

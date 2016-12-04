@@ -3,13 +3,11 @@ using MysteriousDataProduct.Models;
 
 namespace MysteriousDataProduct.Controllers
 {
-
     /// <summary>
     /// The Controller for all views within the Home view.
     /// </summary>
     public class HomeController : Controller
     {
-
         /// <summary>
         /// Creates a Book model and returns the Index view with that model.
         /// </summary>
@@ -26,13 +24,13 @@ namespace MysteriousDataProduct.Controllers
         public ViewResult Trainer(string synopsis = "", string subgenre = "") => View("Trainer", new TrainingBook{Synopsis = synopsis, Subgenre = subgenre});
 
         /// <summary>
-        /// 
+        /// Loads the About view
         /// </summary>
         /// <returns>Returns a ViewResult with the About view.</returns>
         public ViewResult About() => View();
 
         /// <summary>
-        /// 
+        /// Loads the Error view
         /// </summary>
         /// <returns>Returns a ViewResult with the About view.</returns>
         public ViewResult Error() => View();

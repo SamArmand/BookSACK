@@ -1,19 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using MysteriousDataProduct.Models;
 using MysteriousDataProduct.Architecture;
+using MysteriousDataProduct.Models;
 
 namespace MysteriousDataProduct.Controllers
 {
-
     /// <summary>
-    /// The Controller for all views within the Home view.
+    /// The Controller for all views within the Home view
     /// </summary>
     [Route("api/[controller]")]
     public class TrainingBookController : Controller
     {
-
         /// <summary>
-        /// API method for inserting training book data.
+        /// API method for inserting training book data
         /// </summary>
         /// <param name="trainingBook">The TrainingBook passed to the API to be created.</param>
         /// <returns>An ObjectResult with the value true.</returns>
@@ -21,11 +19,14 @@ namespace MysteriousDataProduct.Controllers
         public ObjectResult Train([FromBody] TrainingBook trainingBook) => (new ObjectResult(trainingBook));
 
         /// <summary>
-        /// API method for resetting training book data.
+        /// API method for resetting training book data
         /// </summary>
         /// <returns>An ObjectResult with the value true.</returns>
         [HttpDelete]
-        public ObjectResult Reset() => new ObjectResult(DataAccess.Reset());
+        public ObjectResult Reset() 
+        {
+            DataAccess.Reset();
+            return new ObjectResult(true);
+        } 
     }
-
 }

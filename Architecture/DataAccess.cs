@@ -12,11 +12,6 @@ namespace MysteriousDataProduct.Architecture
     internal class DataAccess
     {
         /// <summary>
-        /// The database connection string
-        /// </summary>
-        private const string ConnectionString = "Server=tcp:h98ohmld2f.database.windows.net,1433;Database=BookSACK;User Id=JMSXTech@h98ohmld2f;Password=jmsx!2014;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
-
-        /// <summary>
         /// Gets the dictionaries for all subgenres in the database
         /// </summary>
         /// <returns>A Dictionary of the dictionaries of all subgenres in the database</returns>
@@ -112,7 +107,7 @@ namespace MysteriousDataProduct.Architecture
         /// <param name="command">The SqlCommand for which to open a connection</param>
         private static void Open(SqlCommand command)
         {
-            command.Connection = new SqlConnection(ConnectionString);
+            command.Connection = new SqlConnection((new AppSettings()).MS_TableConnectionString);
             command.Connection.Open();
         }
 

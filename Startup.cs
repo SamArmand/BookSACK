@@ -17,6 +17,7 @@ namespace MysteriousDataProduct
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+            DataAccess.ConnectionString = Configuration.GetConnectionString("MS_TableConnectionString");
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -25,8 +26,6 @@ namespace MysteriousDataProduct
         public void ConfigureServices(IServiceCollection services) 
         {
             services.AddMvc();
-               // Configure using a sub-section of the appsettings.json file.
-            services.Configure<AppSettings>(Configuration.GetSection("ConnectionStrings"));
         } 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

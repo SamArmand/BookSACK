@@ -11,6 +11,8 @@ namespace MysteriousDataProduct.Architecture
     /// </summary>
     internal class DataAccess
     {
+        internal static string ConnectionString = "";
+
         /// <summary>
         /// Gets the dictionaries for all subgenres in the database
         /// </summary>
@@ -107,7 +109,7 @@ namespace MysteriousDataProduct.Architecture
         /// <param name="command">The SqlCommand for which to open a connection</param>
         private static void Open(SqlCommand command)
         {
-            command.Connection = new SqlConnection((new AppSettings()).MS_TableConnectionString);
+            command.Connection = new SqlConnection(ConnectionString);
             command.Connection.Open();
         }
 

@@ -6,8 +6,11 @@ namespace MysteriousDataProduct.Architecture
     /// <summary>
     /// A class to store static functions
     /// </summary>
-    public class StaticFunctions
+    internal class StaticFunctions
     {
+
+        internal static string ConnectionString = "";
+
         // Define characters to strip from the input
         private static readonly string[] StripChars =
         {
@@ -85,7 +88,7 @@ namespace MysteriousDataProduct.Architecture
         /// </summary>
         /// <param name="synopsis">The synopsis to parse</param>
         /// <returns></returns>
-        public static Dictionary<string, int> GenerateSortedWordFrequency(string synopsis)
+        internal static Dictionary<string, int> GenerateSortedWordFrequency(string synopsis)
         {    
             // Create a new Dictionary object
             var dictionary = new Dictionary<string, int>();

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using MysteriousDataProduct.Models;
+using BookSack.Models;
 
-namespace MysteriousDataProduct.Controllers
+namespace BookSack.Controllers
 {
     /// <summary>
     /// The Controller for all views within the Home view.

@@ -8,7 +8,7 @@
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B2B12D46-7EE5-4A4F-8922-77F930FAF4B8}</ProjectGuid>
-    <RootNamespace>MysteriousDataProduct</RootNamespace>
+    <RootNamespace>BookSack</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>

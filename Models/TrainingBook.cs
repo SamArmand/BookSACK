@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.AspNetCore.Html;
-using MysteriousDataProduct.Architecture;
+using BookSack.Architecture;
 
-namespace MysteriousDataProduct.Models
+namespace BookSack.Models
 {
     /// <summary>
     /// Model for a Training Book

@@ -1,4 +1,4 @@
-﻿clear
+﻿Clear-Host
 
 Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method Delete
 
@@ -16,7 +16,7 @@ foreach ($book in $books) {
         $count++
     }
 
-    clear
+    Clear-Host
 }
 
 $correct = 0;

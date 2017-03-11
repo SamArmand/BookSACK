@@ -1,4 +1,4 @@
-namespace MysteriousDataProduct.Models 
+namespace BookSack.Models 
 {
     /// <summary>
     /// Model for a word

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MysteriousDataProduct.Architecture
+namespace BookSack.Architecture
 {
     /// <summary>
     /// A class to store static functions

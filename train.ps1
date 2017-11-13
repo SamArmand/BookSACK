@@ -11,9 +11,9 @@ foreach ($book in $books) {
     if ($book.Holdout -eq "Train") {
         Write-Host "Completed $count out of $($books.Count)"
 
-        $r = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method POST -Body (ConvertTo-Json @{synopsis = $book.Synopsis; subgenre = $book.Subgenre}) -ContentType 'application/json'
+        Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method POST -Body (ConvertTo-Json @{synopsis = $book.Synopsis; subgenre = $book.Subgenre}) -ContentType 'application/json'
         
-        $count++
+        ++$count
     }
 
     Clear-Host
@@ -30,7 +30,7 @@ foreach ($book in $books) {
     $result = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/Book" -Method Post -Body (ConvertTo-Json @{synopsis = $book.Synopsis}) -ContentType 'application/json'
     
     if ($book.Subgenre -eq $result.Content) {
-        $correct++
+        ++$correct
         Write-Host $result.Content -ForegroundColor Green
     }
     
@@ -41,10 +41,7 @@ foreach ($book in $books) {
         Write-Host "-----------------------------------------------------" -ForegroundColor Red
     }
 
-    $total++
+    ++$total
 }
 
 Write-Host "Results: $correct/$total" 
-
-#localhost:5000
-#booksack.azurewebsites.net

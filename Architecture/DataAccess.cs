@@ -9,7 +9,7 @@ namespace BookSack.Architecture
     /// <summary>
     /// The class that deals with database access
     /// </summary>
-    internal class DataAccess
+    internal static class DataAccess
     {
         internal static string ConnectionString = "";
 

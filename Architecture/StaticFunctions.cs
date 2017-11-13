@@ -6,11 +6,8 @@ namespace BookSack.Architecture
     /// <summary>
     /// A class to store static functions
     /// </summary>
-    internal class StaticFunctions
+    internal static class StaticFunctions
     {
-
-        internal static string ConnectionString = "";
-
         // Define characters to strip from the input
         private static readonly string[] StripChars =
         {
@@ -18,7 +15,7 @@ namespace BookSack.Architecture
             "<", ">", "�", "'", "–", "|", "`", "/", "=", "+",
             "\n", "\t", "\r"
         };
-        
+
         // Define stopwords
         private static readonly string[] Stopwords =
         {
@@ -26,7 +23,7 @@ namespace BookSack.Architecture
             "alone", "along", "already", "also", "although", "always", "among", "amongst", "amoungst", "amount",
             "and", "another", "any", "anyhow", "anyone", "anything", "anyway", "anywhere", "are", "around",
 
-            "back", "became", "because","become","becomes", "becoming", "been", "before", "beforehand", "behind",
+            "back", "became", "because", "become", "becomes", "becoming", "been", "before", "beforehand", "behind",
             "being", "below", "beside", "besides", "between", "beyond", "bill", "both", "bottom", "but",
 
             "call", "can", "cannot", "cant", "con", "could", "couldnt", "cry",
@@ -82,17 +79,17 @@ namespace BookSack.Architecture
 
             "yet", "you", "your", "yours", "yourself", "yourselves"
         };
-        
+
         /// <summary>
         /// Parses the synopsis into a sorted dictionary
         /// </summary>
         /// <param name="synopsis">The synopsis to parse</param>
         /// <returns></returns>
         internal static Dictionary<string, int> GenerateSortedWordFrequency(string synopsis)
-        {    
+        {
             // Create a new Dictionary object
             var dictionary = new Dictionary<string, int>();
-            
+
             // If no valid synopsis was provided, just return the empty dictionary
             if (string.IsNullOrEmpty(synopsis)) return dictionary;
 
@@ -105,10 +102,10 @@ namespace BookSack.Architecture
             // If it does, increment the count of how many times it appears...
             // ...otherwise, if it's a new word then add it to the dictionary with an initial count of 1 [ dictionary[word] + 1 : 1 ]
             // All in one line of code... wow
-            foreach (var word in 
+            foreach (var word in
                 (StripChars.Aggregate(synopsis.ToLower(), (current, stripChar) => current.Replace(stripChar, " ")))
-                    .Split(' ')
-                    .Where(w => w.Length >= 3 && !Stopwords.Contains(w)))
+                .Split(' ')
+                .Where(w => w.Length >= 3 && !Stopwords.Contains(w)))
                 dictionary[word] = dictionary.ContainsKey(word) ? dictionary[word] + 1 : 1;
 
             // Create a dictionary sorted by value (i.e. how many times a word occurs)

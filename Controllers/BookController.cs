@@ -4,11 +4,12 @@ using BookSack.Models;
 namespace BookSack.Controllers
 {
 
+    /// <inheritdoc />
     /// <summary>
-    /// The Controller for all views within the Home view.
+    /// API for Books
     /// </summary>
     [Route("api/[controller]")]
-    public class BookController : Controller
+    public sealed class BookController : Controller
     {
         /// <summary>
         /// API method for inserting training book data.

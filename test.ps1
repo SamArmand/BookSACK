@@ -18,15 +18,14 @@ foreach ($book in $books) {
     
     else {
         Write-host "-----------------------------------------------------" -ForegroundColor Red
-        write-host "    PREDICTED: $($result.Content)          " -ForegroundColor Red
-        write-host "    ACTUAL:    $($book.Subgenre)              "
-        Write-host "    -----------------------------------------------------" -ForegroundColor Red
+        write-host "    PREDICTED: $($result.Content)" -ForegroundColor Red
+        write-host "    ACTUAL:    $($book.Subgenre)"
+        Write-host "-----------------------------------------------------" -ForegroundColor Red
     }
 
-    #$r = Invoke-WebRequest -Uri "http://booksack.azurewebsites.net/api/TrainingBook" -Method POST -Body (ConvertTo-Json @{synopsis = $book.Synopsis; subgenre = $book.Subgenre}) -ContentType 'application/json'
-    $total++
+    ++$total
 
 }
 
-Write-Host "    Results: $correct/$total                  " 
+Write-Host "Results: $correct/$total" 
 

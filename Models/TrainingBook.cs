@@ -9,18 +9,13 @@ namespace BookSack.Models
     /// <summary>
     /// Model for a Training Book
     /// </summary>
-    public class TrainingBook 
+    public sealed class TrainingBook
     {
-        /// <summary>
-        /// Determines if the Process() function has been executed
-        /// </summary>
-        private bool _processed;
-
         /// <summary>
         /// Private field for the synopsis
         /// </summary>
         private string _synopsis = string.Empty;
-        
+
         /// <summary>
         /// Private field for the subgenre
         /// </summary>
@@ -32,23 +27,17 @@ namespace BookSack.Models
         /// <returns>The book's synopsis</returns>
         public string Synopsis
         {
-            /// <summary>
-            /// Getter for the synopsis property
-            /// </summary>
-			get {return _synopsis;} 
-			
-            /// <summary>
-            /// Setter for the synopsis property
-            /// </summary>
-            set 
+            get => _synopsis;
+
+            internal set
             {
                 if (value != null) _synopsis = value;
 
                 // Get the sorted work frequency for this synopsis
-				SortedWordFrequency = StaticFunctions.GenerateSortedWordFrequency(value);
+                SortedWordFrequency = StaticFunctions.GenerateSortedWordFrequency(value);
 
                 // If both the subgenre and synopsis are set, start the training process
-                if (!_processed && _subgenre != string.Empty) Process();
+                Process();
             }
         }
 
@@ -56,34 +45,30 @@ namespace BookSack.Models
         /// Property for the subgenre
         /// </summary>
         /// <returns>The book's subgenre</returns>
-        public string Subgenre 
+        internal string Subgenre
         {
-            /// <summary>
-            /// Getter for the Subgenre property
-            /// </summary>
-            get {return _subgenre;} 
+            private get => _subgenre;
 
-            /// <summary>
-            /// Setter for the Subgenre property
-            /// </summary>
-            set 
+            set
             {
                 if (value != null) _subgenre = value;
-                if (!_processed && _synopsis != string.Empty) Process();
+                Process();
             }
         }
-		
+
         /// <summary>
         /// Property for the sorted word frequency dictionary
         /// </summary>
         /// <returns>The book's sorted word frequency dictionary. Defaults to an empty dictionary</returns>
-		public Dictionary<string, int> SortedWordFrequency {get; private set;} = new Dictionary<string, int>();
+        private Dictionary<string, int> SortedWordFrequency { get; set; } = new Dictionary<string, int>();
 
         /// <summary>
         /// Private function to process the training book and execute the training of the model
         /// </summary>
         private void Process()
         {
+            if (string.IsNullOrEmpty(Subgenre) || string.IsNullOrEmpty(Synopsis)) return;
+
             //Get the dictionary for this subgenre
             var dictionary = DataAccess.GetDictionaries()[Subgenre];
 
@@ -100,7 +85,7 @@ namespace BookSack.Models
                     });
 
                 // ...increment its dictionary entry with the amount of times it appears in this synopsis
-                dictionary[kvp.Key].FrequencyPlus1 += kvp.Value;             
+                dictionary[kvp.Key].FrequencyPlus1 += kvp.Value;
             }
 
             // sum up all the frequencies in the subgenre dictionary
@@ -111,26 +96,24 @@ namespace BookSack.Models
 
             // update the subgenre dictionary
             DataAccess.Update(dictionary);
-
-            _processed = true;
         }
 
-		/// <summary>
+        /// <summary>
         /// Creates the results table in the view
         /// </summary>
         /// <returns>An HtmlString to be passed to the view for rendering</returns>
-        public HtmlString TableForView() 
-		{
-			if (string.IsNullOrEmpty(_synopsis)) return HtmlString.Empty;
+        public HtmlString TableForView()
+        {
+            if (string.IsNullOrEmpty(_synopsis)) return HtmlString.Empty;
 
-			StringBuilder sb = (new StringBuilder())
-				.Append("<table class='table'><thead class='thead-inverse'><tr><th>Word</th><th>Frequency</th></tr></thead><tbody>");
+            StringBuilder sb = (new StringBuilder())
+                .Append(
+                    "<table class='table'><thead class='thead-inverse'><tr><th>Word</th><th>Frequency</th></tr></thead><tbody>");
 
-			foreach (var word in SortedWordFrequency) 
-				sb.Append("<tr><td>").Append(word.Key).Append("</td><td>")
-					.Append(word.Value).Append("</td></tr>");
+            foreach (var word in SortedWordFrequency)
+                sb.Append("<tr><td>" + word.Key + "</td><td>" + word.Value + "</td></tr>");
 
-			return new HtmlString(sb.Append("</tbody></table>").ToString());
-		}
+            return new HtmlString(sb.Append("</tbody></table>").ToString());
+        }
     }
 }

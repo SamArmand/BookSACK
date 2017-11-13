@@ -4,11 +4,12 @@ using BookSack.Models;
 
 namespace BookSack.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
-    /// The Controller for all views within the Home view
+    /// API for Training Books
     /// </summary>
     [Route("api/[controller]")]
-    public class TrainingBookController : Controller
+    public sealed class TrainingBookController : Controller
     {
         /// <summary>
         /// API method for inserting training book data
@@ -23,10 +24,10 @@ namespace BookSack.Controllers
         /// </summary>
         /// <returns>An ObjectResult with the value true.</returns>
         [HttpDelete]
-        public ObjectResult Reset() 
+        public ObjectResult Reset()
         {
             DataAccess.Reset();
             return new ObjectResult(true);
-        } 
+        }
     }
 }

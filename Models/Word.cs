@@ -1,9 +1,9 @@
-namespace BookSack.Models 
+namespace BookSack.Models
 {
     /// <summary>
     /// Model for a word
     /// </summary>
-    public class Word {
+    internal sealed class Word {
 
         /// <summary>
         /// Property for the actual word
